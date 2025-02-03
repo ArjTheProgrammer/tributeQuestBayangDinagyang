@@ -9,6 +9,14 @@
         android:layout_weight="1"
         android:gravity="right">
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="Skip"
+            android:layout_margin="20dp"/>
+
+
     </LinearLayout>
 
 
@@ -25,6 +33,13 @@
             android:gravity="bottom|center"
             android:padding="5dp">
 
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Previous"
+                android:padding="10dp"/>
+
+
         </LinearLayout>
 
         <LinearLayout
@@ -33,6 +48,12 @@
             android:layout_weight="1"
             android:gravity="bottom|center"
             android:padding="5dp">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Next"/>
+
 
         </LinearLayout>
 
