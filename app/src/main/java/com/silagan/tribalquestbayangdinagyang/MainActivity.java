@@ -25,9 +25,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void toStart(View view) {
-        Intent intent = new Intent(this, Mechanics1.class);
-        startActivity(intent);
-        overridePendingTransition(0, 0);
+
     }
 
     public void toAbout(View view) {

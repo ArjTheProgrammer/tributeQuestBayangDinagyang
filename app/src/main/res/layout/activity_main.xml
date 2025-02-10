@@ -9,7 +9,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/mainbg"
+        android:src="@drawable/bg_game"
         android:scaleType="centerCrop"/>
 
     <LinearLayout
@@ -19,54 +19,61 @@
         android:gravity="bottom"
         android:weightSum="10">
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:src="@drawable/home_title"
+            android:layout_weight="4"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:orientation="horizontal"
             android:gravity="end"
-            android:layout_weight="7"
-            android:weightSum="3">
+            android:layout_weight="6"
+            android:weightSum="4">
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:layout_weight="2"
+                android:gravity="center|top"
+                android:orientation="vertical"
+                android:weightSum="3">
 
-                <ImageButton
-                    android:layout_width="160dp"
-                    android:layout_height="90dp"
-                    android:background="@drawable/startbtn"
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.7"
+                    android:src="@drawable/button_home_start"
                     android:onClick="toStart"
-                    android:contentDescription="start button"/>
+                    android:contentDescription="start button"
+                    android:scaleType="centerInside"/>
 
-                <ImageButton
-                    android:layout_width="160dp"
-                    android:layout_height="90dp"
-                    android:background="@drawable/aboutbtn"
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.7"
+                    android:src="@drawable/button_home_about"
                     android:onClick="toAbout"
-                    android:contentDescription="about button"/>
+                    android:contentDescription="about button" />
 
-                <ImageButton
-                    android:layout_width="160dp"
-                    android:layout_height="90dp"
-                    android:background="@drawable/exitbtn"
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.7"
+                    android:src="@drawable/button_home_exit"
                     android:onClick="toExit"
                     android:contentDescription="exit button"/>
 
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:gravity="end|bottom"
-                android:layout_weight="1">
 
                 <ImageView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/eastereggbtn"/>
-            </LinearLayout>
+                    android:src="@drawable/button_easteregg"
+                    android:layout_gravity="bottom"
+                    android:layout_weight="1"/>
         </LinearLayout>
     </LinearLayout>
 
