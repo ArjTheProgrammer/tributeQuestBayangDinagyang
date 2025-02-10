@@ -37,20 +37,23 @@
                 <ImageButton
                     android:layout_width="160dp"
                     android:layout_height="90dp"
-                    android:background="@drawable/startbtn_selector"
-                    android:onClick="toStart"/>
+                    android:background="@drawable/startbtn"
+                    android:onClick="toStart"
+                    android:contentDescription="start button"/>
 
                 <ImageButton
                     android:layout_width="160dp"
                     android:layout_height="90dp"
-                    android:background="@drawable/aboutbtn_selector"
-                    android:onClick="toAbout"/>
+                    android:background="@drawable/aboutbtn"
+                    android:onClick="toAbout"
+                    android:contentDescription="about button"/>
 
                 <ImageButton
                     android:layout_width="160dp"
                     android:layout_height="90dp"
-                    android:background="@drawable/exitbtn_selector"
-                    android:onClick="toExit"/>
+                    android:background="@drawable/exitbtn"
+                    android:onClick="toExit"
+                    android:contentDescription="exit button"/>
 
             </LinearLayout>
             <LinearLayout
