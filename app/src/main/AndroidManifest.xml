@@ -13,10 +13,13 @@
         android:theme="@style/Theme.TribalQuestBayangDinagyang"
         tools:targetApi="31">
         <activity
-            android:name=".Mechanics1"
+            android:name=".Mechanics3"
             android:exported="false" />
         <activity
-            android:name=".Mechanics"
+            android:name=".Mechanics2"
+            android:exported="false" />
+        <activity
+            android:name=".Mechanics1"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

@@ -5,12 +5,12 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Mechanics1">
+    tools:context=".Mechanics2">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/game1mech1"
+        android:src="@drawable/game1mech2"
         android:scaleType="centerCrop"/>
 
     <LinearLayout
