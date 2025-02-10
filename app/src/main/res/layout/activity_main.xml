@@ -37,19 +37,19 @@
                 <ImageButton
                     android:layout_width="160dp"
                     android:layout_height="90dp"
-                    android:background="@drawable/startbtn"
+                    android:background="@drawable/startbtn_selector"
                     android:onClick="toStart"/>
 
                 <ImageButton
                     android:layout_width="160dp"
                     android:layout_height="90dp"
-                    android:background="@drawable/aboutbtn"
+                    android:background="@drawable/aboutbtn_selector"
                     android:onClick="toAbout"/>
 
                 <ImageButton
                     android:layout_width="160dp"
                     android:layout_height="90dp"
-                    android:background="@drawable/exitbtn"
+                    android:background="@drawable/exitbtn_selector"
                     android:onClick="toExit"/>
 
             </LinearLayout>
