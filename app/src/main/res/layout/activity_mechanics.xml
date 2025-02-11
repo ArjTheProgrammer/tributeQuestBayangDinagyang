@@ -25,8 +25,9 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="30dp">
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/ig_mechanics"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:src="@drawable/mech_1"/>
 
                 <LinearLayout
@@ -54,6 +55,8 @@
                             android:layout_height="wrap_content"
                             android:src="@drawable/button_mechanics_next"
                             android:layout_alignParentEnd="true"
+                            android:onClick="toNext"
+                            android:contentDescription="to previous"
                             android:layout_marginRight="15dp"
                             android:layout_marginLeft="15dp"
                             android:layout_centerVertical="true"/>

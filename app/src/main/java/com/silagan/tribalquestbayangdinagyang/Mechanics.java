@@ -2,6 +2,7 @@ package com.silagan.tribalquestbayangdinagyang;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +11,9 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class Mechanics extends AppCompatActivity {
+    ImageView ig_mechanics;
+    private int[] images = {R.drawable.mech_1, R.drawable.mech_2, R.drawable.mech_3};
+    private int currentIndex = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,11 +25,25 @@ public class Mechanics extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        ig_mechanics = (ImageView)  findViewById(R.id.ig_mechanics);
     }
 
     public void toNext(View view) {
+        if (currentIndex > 0) {
+            currentIndex--;
+        } else {
+            currentIndex = images.length - 1;
+        }
+        ig_mechanics.setImageResource(images[currentIndex]);
     }
 
     public void toPrev(View view) {
+        if (currentIndex < images.length - 1) {
+            currentIndex++;
+        } else {
+            currentIndex = 0;
+        }
+        ig_mechanics.setImageResource(images[currentIndex]);
     }
 }

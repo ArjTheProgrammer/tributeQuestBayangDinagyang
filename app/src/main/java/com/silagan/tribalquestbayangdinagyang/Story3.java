@@ -24,10 +24,10 @@ public class Story3 extends AppCompatActivity {
         });
     }
 
-    public void toSkip(View view) {
-    }
-
     public void toMechanics(View view) {
+        Intent i = new Intent(this, Mechanics.class);
+        startActivity(i);
+        overridePendingTransition(0,0);
     }
 
     public void toPrev(View view) {
