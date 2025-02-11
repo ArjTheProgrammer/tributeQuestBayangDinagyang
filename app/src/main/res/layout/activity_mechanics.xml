@@ -43,21 +43,24 @@
                         android:layout_weight="1">
 
                         <ImageView
-                            android:layout_width="wrap_content"
+                            android:layout_width="50dp"
                             android:layout_height="wrap_content"
                             android:src="@drawable/button_mechanics_prev"
                             android:onClick="toPrev"
                             android:contentDescription="to previous"
-                            android:layout_centerVertical="true"/>
+                            android:adjustViewBounds="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="15dp"/>
 
                         <ImageView
-                            android:layout_width="wrap_content"
+                            android:layout_width="50dp"
                             android:layout_height="wrap_content"
                             android:src="@drawable/button_mechanics_next"
                             android:layout_alignParentEnd="true"
                             android:onClick="toNext"
+                            android:adjustViewBounds="true"
                             android:contentDescription="to previous"
-                            android:layout_marginRight="15dp"
+                            android:layout_marginRight="20dp"
                             android:layout_marginLeft="15dp"
                             android:layout_centerVertical="true"/>
 
@@ -71,10 +74,11 @@
                         android:layout_weight="0.7">
 
                         <ImageView
-                            android:layout_width="wrap_content"
+                            android:layout_width="150dp"
                             android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
                             android:src="@drawable/button_mechanics_play"
-                            android:layout_gravity="center|top"/>
+                            android:layout_gravity="center|top" />
 
                     </LinearLayout>
 
