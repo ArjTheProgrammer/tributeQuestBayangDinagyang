@@ -1,5 +1,6 @@
 package com.silagan.tribalquestbayangdinagyang;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -45,5 +46,11 @@ public class Mechanics extends AppCompatActivity {
             currentIndex--;
         }
         ig_mechanics.setImageResource(images[currentIndex]);
+    }
+
+    public void toStory(View view) {
+        Intent i = new Intent(this, Story3.class);
+        startActivity(i);
+        overridePendingTransition(0,0);
     }
 }
