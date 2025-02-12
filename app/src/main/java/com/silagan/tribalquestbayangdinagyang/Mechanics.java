@@ -30,19 +30,19 @@ public class Mechanics extends AppCompatActivity {
     }
 
     public void toNext(View view) {
-        if (currentIndex > 0) {
-            currentIndex--;
+        if ( currentIndex == images.length - 1) {
+            currentIndex = 0;
         } else {
-            currentIndex = images.length - 1;
+            currentIndex++;
         }
         ig_mechanics.setImageResource(images[currentIndex]);
     }
 
     public void toPrev(View view) {
-        if (currentIndex < images.length - 1) {
-            currentIndex++;
+        if (currentIndex == 0) {
+            currentIndex = 2;
         } else {
-            currentIndex = 0;
+            currentIndex--;
         }
         ig_mechanics.setImageResource(images[currentIndex]);
     }
