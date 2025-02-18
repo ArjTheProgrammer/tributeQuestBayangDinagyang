@@ -45,7 +45,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_weight="0.7"
-                    android:src="@drawable/button_home_start"
+                    android:src="@drawable/selector_start"
                     android:onClick="toStart"
                     android:contentDescription="start button"
                     android:scaleType="centerInside"/>
@@ -54,7 +54,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_weight="0.7"
-                    android:src="@drawable/button_home_about"
+                    android:src="@drawable/selector_about"
                     android:onClick="toAbout"
                     android:contentDescription="about button" />
 
@@ -62,7 +62,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_weight="0.7"
-                    android:src="@drawable/button_home_exit"
+                    android:src="@drawable/selector_exit"
                     android:onClick="toExit"
                     android:contentDescription="exit button"/>
 

@@ -3,15 +3,12 @@
     <item android:state_pressed="true">
         <layer-list>
             <item>
-                <bitmap android:src="@drawable/button_home_start"/>
-            </item>
-            <item>
-                <color android:color="#66000000"/>  <!-- Semi-transparent black overlay -->
+                <bitmap android:src="@drawable/hover_home_exit"/>
             </item>
         </layer-list>
     </item>
     <!-- Normal state -->
     <item>
-        <bitmap android:src="@drawable/button_home_start"/>
+        <bitmap android:src="@drawable/button_home_exit"/>
     </item>
 </selector>

@@ -3,10 +3,7 @@
     <item android:state_pressed="true">
         <layer-list>
             <item>
-                <bitmap android:src="@drawable/button_home_about"/>
-            </item>
-            <item>
-                <color android:color="#66000000"/>  <!-- Semi-transparent black overlay -->
+                <bitmap android:src="@drawable/hover_home_about"/>
             </item>
         </layer-list>
     </item>
