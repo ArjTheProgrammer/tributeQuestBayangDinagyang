@@ -17,7 +17,7 @@
         android:id="@+id/prev_button"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:src="@drawable/button_mechanics_prev"
+        android:src="@drawable/selector_prev"
         android:onClick="toPrev"
         android:contentDescription="to previous"
         android:layout_alignParentStart="true"
@@ -35,7 +35,7 @@
     <ImageView
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:src="@drawable/button_mechanics_play"
+        android:src="@drawable/selector_play"
         android:layout_alignParentEnd="true"
         android:layout_margin="20dp"
         android:onClick="toMechanics"

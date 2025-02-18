@@ -53,4 +53,7 @@ public class Mechanics extends AppCompatActivity {
         startActivity(i);
         overridePendingTransition(0,0);
     }
+
+    public void toGame(View view) {
+    }
 }

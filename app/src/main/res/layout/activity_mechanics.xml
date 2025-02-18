@@ -22,7 +22,7 @@
         <ImageView
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/button_mechanics_ext"
+            android:src="@drawable/selector_mech_exit"
             android:adjustViewBounds="true"
             android:layout_marginTop="30dp"
             android:layout_marginLeft="10dp"
@@ -56,7 +56,7 @@
                         <ImageView
                             android:layout_width="50dp"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/button_mechanics_prev"
+                            android:src="@drawable/selector_prev"
                             android:onClick="toPrev"
                             android:contentDescription="to previous"
                             android:adjustViewBounds="true"
@@ -66,7 +66,7 @@
                         <ImageView
                             android:layout_width="50dp"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/button_mechanics_next"
+                            android:src="@drawable/selector_next"
                             android:layout_alignParentEnd="true"
                             android:onClick="toNext"
                             android:adjustViewBounds="true"
@@ -88,8 +88,10 @@
                             android:layout_width="200dp"
                             android:layout_height="wrap_content"
                             android:adjustViewBounds="true"
-                            android:src="@drawable/button_mechanics_play"
-                            android:layout_gravity="center|top" />
+                            android:src="@drawable/selector_play"
+                            android:onClick="toGame"
+                            android:layout_gravity="center|top"
+                            android:contentDescription="to game"/>
 
                     </LinearLayout>
 
