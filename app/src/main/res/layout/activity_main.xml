@@ -9,7 +9,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/bg_game"
+        android:src="@drawable/game_bg_unblur"
         android:scaleType="centerCrop"/>
 
     <LinearLayout
