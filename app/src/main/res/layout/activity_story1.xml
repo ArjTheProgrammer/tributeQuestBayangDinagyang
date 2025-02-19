@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Story1"
+    android:background="@drawable/story_bg">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/story1"/>
+
+    <ImageView
+        android:id="@+id/skip_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/selector_skip"
+        android:layout_margin="15dp"
+        android:onClick="toSkip"
+        android:contentDescription="to skip"
+        android:layout_alignParentEnd="true" />
+
+
+    <ImageView
+        android:id="@+id/main_button"
+        android:layout_width="138dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/selector_backtomain"
+        android:layout_margin="12dp"
+        android:onClick="toMain"
+        android:contentDescription="to main" />
+
+    <ImageView
+        android:id="@+id/next_button"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/selector_next"
+        android:layout_alignParentEnd="true"
+        android:onClick="toNext"
+        android:layout_centerVertical="true"
+        android:contentDescription="to next"/>
+
+</RelativeLayout>

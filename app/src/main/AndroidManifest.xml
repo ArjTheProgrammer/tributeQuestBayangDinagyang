@@ -13,6 +13,27 @@
         android:theme="@style/Theme.TribalQuestBayangDinagyang"
         tools:targetApi="31">
         <activity
+            android:name=".About"
+            android:exported="false" />
+        <activity
+            android:name=".GameWin"
+            android:exported="false" />
+        <activity
+            android:name=".GameOver"
+            android:exported="false" />
+        <activity
+            android:name=".Mechanics"
+            android:exported="false" />
+        <activity
+            android:name=".Story3"
+            android:exported="false" />
+        <activity
+            android:name=".Story2"
+            android:exported="false" />
+        <activity
+            android:name=".Story1"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

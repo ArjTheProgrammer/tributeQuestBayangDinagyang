@@ -6,64 +6,77 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <pl.droidsonroids.gif.GifImageView
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:src="@drawable/game_bg_unblur"
+        android:scaleType="centerCrop"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="bottom"
+        android:weightSum="10">
 
-        <Button
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:layout_gravity="end"
-            android:layout_margin="15dp"
-            android:text="Setting" />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:src="@drawable/home_title"
+            android:layout_weight="4"/>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
             android:orientation="horizontal"
             android:gravity="end"
-            android:weightSum="3">
+            android:layout_weight="6"
+            android:weightSum="4">
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:layout_weight="2"
+                android:gravity="center|top"
+                android:orientation="vertical"
+                android:weightSum="3">
 
-                <Button
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
-                    android:text="Start" />
+                <ImageView
+                    android:id="@+id/start_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.7"
+                    android:src="@drawable/selector_start"
+                    android:onClick="toStart"
+                    android:contentDescription="start button"
+                    android:scaleType="centerInside"/>
 
-                <Button
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginBottom="15dp"
-                    android:text="Story" />
+                <ImageView
+                    android:id="@+id/about_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.7"
+                    android:src="@drawable/selector_about"
+                    android:onClick="toAbout"
+                    android:contentDescription="about button" />
 
-                <Button
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
-                    android:text="About" />
+                <ImageView
+                    android:id="@+id/exit_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.7"
+                    android:src="@drawable/selector_exit"
+                    android:onClick="toExit"
+                    android:contentDescription="exit button"/>
 
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:gravity="end|bottom"
-                android:layout_weight="1">
 
-                <pl.droidsonroids.gif.GifImageView
-                    android:layout_width="20dp"
-                    android:layout_height="50dp" />
-            </LinearLayout>
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/button_easteregg"
+                    android:layout_gravity="bottom"
+                    android:layout_weight="1"/>
         </LinearLayout>
     </LinearLayout>
 

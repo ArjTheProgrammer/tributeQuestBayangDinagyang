@@ -10,13 +10,13 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class MainActivity extends AppCompatActivity {
+public class Story2 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_story2);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -24,21 +24,24 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void toStart(View view) {
-        Intent intent = new Intent(this, Story1.class);
-        startActivity(intent);
-        overridePendingTransition(0, 0);
-        finish();
-    }
-
-    public void toAbout(View view) {
-        Intent i = new Intent(this, About.class);
+    public void toSkip(View view) {
+        Intent i = new Intent(this, Mechanics.class);
         startActivity(i);
         overridePendingTransition(0,0);
         finish();
     }
 
-    public void toExit(View view) {
+    public void toPrev(View view) {
+        Intent i = new Intent(this, Story1.class);
+        startActivity(i);
+        overridePendingTransition(0,0);
+        finish();
+    }
+
+    public void toNext(View view) {
+        Intent i = new Intent(this, Story3.class);
+        startActivity(i);
+        overridePendingTransition(0,0);
         finish();
     }
 }

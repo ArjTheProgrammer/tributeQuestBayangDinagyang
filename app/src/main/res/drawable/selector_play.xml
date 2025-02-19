@@ -1,0 +1,14 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Pressed state -->
+    <item android:state_pressed="true">
+        <layer-list>
+            <item>
+                <bitmap android:src="@drawable/hover_mech_play"/>
+            </item>
+        </layer-list>
+    </item>
+    <!-- Normal state -->
+    <item>
+        <bitmap android:src="@drawable/button_mechanics_play"/>
+    </item>
+</selector>
