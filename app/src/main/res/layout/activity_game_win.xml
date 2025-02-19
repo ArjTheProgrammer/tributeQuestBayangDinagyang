@@ -31,22 +31,26 @@
                 android:src="@drawable/sign_winner" />
 
             <TextView
+                android:id="@+id/score"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginBottom="157dp"
+                android:layout_marginBottom="120dp"
                 android:fontFamily="@font/sigher"
+                android:textColor="@color/black"
                 android:text="0"
-                android:textSize="40dp" />
+                android:textSize="90dp" />
 
             <TextView
+                android:id="@+id/highScore"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="50dp"
                 android:fontFamily="@font/sigher"
+                android:textColor="@color/black"
                 android:text="0"
                 android:textSize="35dp" />
 
@@ -70,7 +74,7 @@
             <ImageView
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:src="@drawable/selector_playagain"
+                android:src="@drawable/selector_main"
                 android:onClick="toMain"
                 android:contentDescription="to main"
                 android:adjustViewBounds="true"/>

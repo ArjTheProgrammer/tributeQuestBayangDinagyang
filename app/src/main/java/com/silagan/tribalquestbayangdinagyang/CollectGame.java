@@ -25,7 +25,7 @@ public class CollectGame extends View {
 
     Bitmap background, ground, person;
     private Bitmap timeScoreBackground;
-    Rect rectBackground, rectGround, rectScore, rectTimer;
+    Rect rectBackground, rectGround, rectTimer;
     Context context;
     Handler handler;
     final long UPDATE_MILLIS = 30;
@@ -55,9 +55,11 @@ public class CollectGame extends View {
     private Paint blurPaint;
     private Rect pauseButtonRect;
     private Rect continueButtonRect, restartButtonRect, exitButtonRect;
-    private int buttonSize = 120;
     private long pauseStartTime = 0;
     private long totalPausedTime = 0;
+
+    Intent toGameOver;
+    Intent toGameWin;
 
     boolean bombCollected;
 
@@ -79,7 +81,6 @@ public class CollectGame extends View {
         dHeight = size.y;
         rectBackground = new Rect(0, 0, dWidth, dHeight);
         rectGround = new Rect(0, dHeight - ground.getHeight(), dWidth, dHeight);
-        rectScore = new Rect(20, 50, 20 + scoreBgWidth, 20 + scoreBgHeight);
         rectTimer = new Rect(20, 50 + scoreBgHeight + 10, 20 + scoreBgWidth, 20 + scoreBgHeight + 10 + scoreBgHeight);
         handler = new Handler();
         runnable = new Runnable() {
@@ -114,7 +115,7 @@ public class CollectGame extends View {
         exitButton = Bitmap.createScaledBitmap(exitButton, 487, 170, true);
 
         // Initialize button positions
-        pauseButtonRect = new Rect(dWidth - pauseButton.getWidth() - 50, 80, dWidth - 50, 80 + pauseButton.getWidth());
+        pauseButtonRect = new Rect(dWidth - pauseButton.getWidth() - 50, 140, dWidth - 50, 140 + pauseButton.getWidth());
 
         // Center menu buttons
         int centerX = dWidth / 2 - continueButton.getWidth() / 2;
@@ -152,6 +153,9 @@ public class CollectGame extends View {
         preallocatedItems.add(new Item(context, R.drawable.golden_necklace, 10));//13
 
         bombCollected = false;
+
+        toGameOver = new Intent(context, GameOver.class);
+        toGameWin = new Intent(context, GameWin.class);
 
         startTime = SystemClock.elapsedRealtime();
     }
@@ -349,7 +353,6 @@ public class CollectGame extends View {
                     explosions.add(explosion);
                     bomb.resetPosition();
                     bombCollected = true;
-                    endGame();
                 }
 
                 // Reset bomb position if it falls off ground
@@ -370,7 +373,7 @@ public class CollectGame extends View {
 
             // End game after duration
             if (elapsedTime >= gameDuration) {
-                endGame();
+                endGame(toGameWin);
             }
 
             for (int i = 0; i < explosions.size(); i++) {
@@ -381,7 +384,7 @@ public class CollectGame extends View {
                     explosions.remove(i);
 
                     if (bombCollected){
-                        endGame();
+                        endGame(toGameOver);
                     }
                 }
             }
@@ -396,9 +399,9 @@ public class CollectGame extends View {
             }
 
             // Update score
-            canvas.drawBitmap(timeScoreBackground, 30, 50, null);
-            canvas.drawText("" + points, 300, TEXT_SIZE + 120, textPaint);
-            canvas.drawText("" + remainingTime + "s", 80, TEXT_SIZE + 120, timerPaint);
+            canvas.drawBitmap(timeScoreBackground, 30, 120, null);
+            canvas.drawText("" + points, 300, TEXT_SIZE + 190, textPaint);
+            canvas.drawText("" + remainingTime + "s", 80, TEXT_SIZE + 190, timerPaint);
 
             // Draw pause button
             canvas.drawBitmap(pauseButton, null, pauseButtonRect, null);
@@ -418,9 +421,9 @@ public class CollectGame extends View {
         handler.postDelayed(runnable, UPDATE_MILLIS);
     }
 
-    private void endGame() {
+    private void endGame(Intent i) {
         isGameOver = true;
-        Intent intent = new Intent(context, GameOver.class);
+        Intent intent = i;
         intent.putExtra("points", points);
         if (context instanceof Activity) { // Ensure context is an Activity
             Activity activity = (Activity) context;
