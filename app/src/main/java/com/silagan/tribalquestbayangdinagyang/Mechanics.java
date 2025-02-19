@@ -55,5 +55,7 @@ public class Mechanics extends AppCompatActivity {
     }
 
     public void toGame(View view) {
+        CollectGame collectGame = new CollectGame(this);
+        setContentView(collectGame);
     }
 }
