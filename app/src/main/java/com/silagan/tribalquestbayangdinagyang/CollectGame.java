@@ -339,16 +339,17 @@ public class CollectGame extends View {
                 bomb.bombY += bomb.bombVelocity;
 
                 // Collision detection with person
-                if (bomb.bombX + bomb.getBombWidth() >= personX - 100
+                if (bomb.bombX + bomb.getBombWidth() >= personX + 100
                         && bomb.bombX <= personX + person.getWidth() - 100
-                        && bomb.bombY + bomb.getBombHeight() - 320 >= personY
-                        && bomb.bombY <= personY + person.getHeight() - 320) {
+                        && bomb.bombY + bomb.getBombHeight() - 290 >= personY
+                        && bomb.bombY <= personY + person.getHeight() - 290) {
                     Explosion explosion = new Explosion(context);
                     explosion.explosionX = bombs.get(i).bombX;
                     explosion.explosionY = bombs.get(i).bombY;
                     explosions.add(explosion);
                     bomb.resetPosition();
                     bombCollected = true;
+                    endGame();
                 }
 
                 // Reset bomb position if it falls off ground

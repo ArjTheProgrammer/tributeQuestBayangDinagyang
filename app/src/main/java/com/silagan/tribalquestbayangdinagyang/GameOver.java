@@ -1,6 +1,8 @@
 package com.silagan.tribalquestbayangdinagyang;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,5 +22,17 @@ public class GameOver extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+
+    public void toCollectGame(View view) {
+        CollectGame collectGame = new CollectGame(this);
+        setContentView(collectGame);
+    }
+
+    public void toMain(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        overridePendingTransition(0, 0);
+        finish();
     }
 }

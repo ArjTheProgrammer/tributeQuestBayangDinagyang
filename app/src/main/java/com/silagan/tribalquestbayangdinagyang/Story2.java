@@ -31,11 +31,13 @@ public class Story2 extends AppCompatActivity {
         Intent i = new Intent(this, Story1.class);
         startActivity(i);
         overridePendingTransition(0,0);
+        finish();
     }
 
     public void toNext(View view) {
         Intent i = new Intent(this, Story3.class);
         startActivity(i);
         overridePendingTransition(0,0);
+        finish();
     }
 }
