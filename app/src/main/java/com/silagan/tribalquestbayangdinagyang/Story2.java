@@ -25,6 +25,10 @@ public class Story2 extends AppCompatActivity {
     }
 
     public void toSkip(View view) {
+        Intent i = new Intent(this, Mechanics.class);
+        startActivity(i);
+        overridePendingTransition(0,0);
+        finish();
     }
 
     public void toPrev(View view) {

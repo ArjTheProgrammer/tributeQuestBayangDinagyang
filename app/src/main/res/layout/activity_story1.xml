@@ -18,10 +18,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/selector_skip"
-        android:layout_margin="20dp"
+        android:layout_margin="15dp"
         android:onClick="toSkip"
         android:contentDescription="to skip"
         android:layout_alignParentEnd="true" />
+
+
+    <ImageView
+        android:id="@+id/main_button"
+        android:layout_width="135dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/selector_backtomain"
+        android:layout_margin="10dp"
+        android:onClick="toMain"
+        android:contentDescription="to main" />
 
     <ImageView
         android:id="@+id/next_button"
@@ -30,6 +41,7 @@
         android:src="@drawable/selector_next"
         android:layout_alignParentEnd="true"
         android:onClick="toNext"
-        android:layout_centerVertical="true"/>
+        android:layout_centerVertical="true"
+        android:contentDescription="to next"/>
 
 </RelativeLayout>
