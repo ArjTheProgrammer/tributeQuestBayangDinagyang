@@ -61,7 +61,7 @@
                             android:contentDescription="to previous"
                             android:adjustViewBounds="true"
                             android:layout_centerVertical="true"
-                            android:layout_marginLeft="15dp"/>
+                            android:layout_marginLeft="50dp"/>
 
                         <ImageView
                             android:layout_width="50dp"
@@ -71,8 +71,8 @@
                             android:onClick="toNext"
                             android:adjustViewBounds="true"
                             android:contentDescription="to previous"
-                            android:layout_marginRight="20dp"
-                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="60dp"
+                            android:layout_marginLeft="5dp"
                             android:layout_centerVertical="true"/>
 
                     </RelativeLayout>

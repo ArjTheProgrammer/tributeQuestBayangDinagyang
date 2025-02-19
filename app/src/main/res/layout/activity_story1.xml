@@ -26,11 +26,11 @@
 
     <ImageView
         android:id="@+id/main_button"
-        android:layout_width="135dp"
+        android:layout_width="138dp"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:src="@drawable/selector_backtomain"
-        android:layout_margin="10dp"
+        android:layout_margin="12dp"
         android:onClick="toMain"
         android:contentDescription="to main" />
 
