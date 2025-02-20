@@ -59,5 +59,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void toMiniGame(View view) {
+        Intent i = new Intent(this, CardGame.class);
+        startActivity(i);
+        overridePendingTransition(0,0);
     }
 }
