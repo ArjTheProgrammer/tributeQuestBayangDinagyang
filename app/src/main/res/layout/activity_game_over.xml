@@ -27,6 +27,7 @@
             android:gravity="center_horizontal">
 
             <ImageView
+                android:id="@+id/sign_gameover"
                 android:layout_width="400dp"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"

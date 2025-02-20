@@ -3,6 +3,8 @@ package com.silagan.tribalquestbayangdinagyang;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +13,8 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class GameOver extends AppCompatActivity {
+
+    private ImageView gameOver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +26,10 @@ public class GameOver extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        gameOver = findViewById(R.id.sign_gameover);
+
+        gameOver.startAnimation(AnimationUtils.loadAnimation(this, R.anim.swinging_anim));
     }
 
     public void toCollectGame(View view) {
