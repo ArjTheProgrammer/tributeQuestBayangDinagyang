@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -18,6 +21,9 @@ public class GameWin extends AppCompatActivity {
 
     TextView score;
     TextView highScore;
+    ImageView playAgain;
+    ImageView main;
+    RelativeLayout gameWin;
     SharedPreferences sharedPreferences;
 
     @Override
@@ -33,9 +39,15 @@ public class GameWin extends AppCompatActivity {
 
         score = findViewById(R.id.score);
         highScore = findViewById(R.id.highScore);
+        gameWin = findViewById(R.id.sign_winner);
+        playAgain = findViewById(R.id.play_again);
+        main = findViewById(R.id.main_button);
 
         // Retrieve the score passed from the GameView
         int points = Objects.requireNonNull(getIntent().getExtras()).getInt("points", 0);
+        gameWin.startAnimation(AnimationUtils.loadAnimation(this, R.anim.pop_up_anim));
+        playAgain.startAnimation(AnimationUtils.loadAnimation(this, R.anim.pop_up_anim));
+        main.startAnimation(AnimationUtils.loadAnimation(this, R.anim.pop_up_anim));
 
         // Display the current score
         score.setText(String.valueOf(points)); // Convert int to String
