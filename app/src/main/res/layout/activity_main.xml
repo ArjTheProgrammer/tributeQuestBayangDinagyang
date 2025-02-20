@@ -77,8 +77,10 @@
                     android:id="@+id/minigame_button"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/button_easteregg"
+                    android:src="@drawable/selector_easteregg"
                     android:layout_gravity="bottom"
+                    android:onClick="toMiniGame"
+                    android:contentDescription="to minigame"
                     android:layout_weight="1"/>
         </LinearLayout>
     </LinearLayout>

@@ -2,7 +2,7 @@
     <translate
         android:fromYDelta="0"
         android:toYDelta="-20"
-        android:duration="1000"
+        android:duration="700"
         android:repeatMode="reverse"
         android:repeatCount="infinite"
         android:interpolator="@android:anim/accelerate_decelerate_interpolator"/>
@@ -10,7 +10,7 @@
     <alpha
         android:fromAlpha="1.0"
         android:toAlpha="9"
-        android:duration="500"
+        android:duration="700"
         android:repeatMode="reverse"
         android:repeatCount="infinite"
         android:interpolator="@android:anim/accelerate_decelerate_interpolator"/>

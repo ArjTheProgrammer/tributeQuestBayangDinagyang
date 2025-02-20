@@ -55,6 +55,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void toExit(View view) {
-        finish();
+        finishAffinity();
+    }
+
+    public void toMiniGame(View view) {
     }
 }
