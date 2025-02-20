@@ -16,6 +16,9 @@ public class GameOver extends AppCompatActivity {
 
     private ImageView gameOver;
 
+    private ImageView tryAgain;
+    private ImageView main;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,8 +31,12 @@ public class GameOver extends AppCompatActivity {
         });
 
         gameOver = findViewById(R.id.sign_gameover);
+        tryAgain = findViewById(R.id.try_again);
+        main = findViewById(R.id.toMain);
 
         gameOver.startAnimation(AnimationUtils.loadAnimation(this, R.anim.swinging_anim));
+        tryAgain.startAnimation(AnimationUtils.loadAnimation(this, R.anim.pop_up_anim));
+        main.startAnimation(AnimationUtils.loadAnimation(this, R.anim.pop_up_anim));
     }
 
     public void toCollectGame(View view) {
