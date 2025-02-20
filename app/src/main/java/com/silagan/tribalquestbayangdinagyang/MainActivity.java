@@ -28,14 +28,12 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, Story1.class);
         startActivity(intent);
         overridePendingTransition(0, 0);
-        finish();
     }
 
     public void toAbout(View view) {
         Intent i = new Intent(this, About.class);
         startActivity(i);
         overridePendingTransition(0,0);
-        finish();
     }
 
     public void toExit(View view) {

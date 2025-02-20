@@ -28,13 +28,11 @@ public class Story3 extends AppCompatActivity {
         Intent i = new Intent(this, Mechanics.class);
         startActivity(i);
         overridePendingTransition(0,0);
-        finish();
     }
 
     public void toPrev(View view) {
         Intent i = new Intent(this, Story2.class);
         startActivity(i);
         overridePendingTransition(0,0);
-        finish();
     }
 }

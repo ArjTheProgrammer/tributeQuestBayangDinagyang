@@ -28,6 +28,5 @@ public class About extends AppCompatActivity {
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
         overridePendingTransition(0,0);
-        finish();
     }
 }
