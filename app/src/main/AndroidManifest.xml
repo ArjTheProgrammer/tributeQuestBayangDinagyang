@@ -13,6 +13,9 @@
         android:theme="@style/Theme.TribalQuestBayangDinagyang"
         tools:targetApi="31">
         <activity
+            android:name=".CardGame"
+            android:exported="false" />
+        <activity
             android:name=".About"
             android:exported="false" />
         <activity
