@@ -28,7 +28,7 @@
                 android:layout_height="70dp"
                 android:layout_marginBottom="20dp"
                 android:clickable="true"
-                android:src="@drawable/button_pause_resume" />
+                android:src="@drawable/selector_resume" />
 
             <ImageView
                 android:id="@+id/restartButton"
@@ -37,7 +37,7 @@
                 android:layout_marginBottom="20dp"
                 android:clickable="true"
                 android:focusable="true"
-                android:src="@drawable/selector_pause" />
+                android:src="@drawable/selector_restart" />
 
             <ImageView
                 android:id="@+id/quitButton"
