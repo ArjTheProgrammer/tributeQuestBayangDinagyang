@@ -81,8 +81,6 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
         }
 
         new Handler().postDelayed(() -> {
-            // Shuffle again before hiding cards
-            /*Collections.shuffle(shuffledDrawableIds);*/
 
             for (int i = 0; i < iv_CardIds.length; i++) {
                 ImageView imageView = findViewById(iv_CardIds[i]);
@@ -91,6 +89,7 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
                 imageView.setImageResource(R.drawable.card_flipped);
                 imageView.setTag(cardInfo);
                 imageView.setOnClickListener(this);
+                imageView.setEnabled(true);
             }
 
             startGameTimer();
@@ -181,6 +180,7 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
             gameWinOverlay.setVisibility(View.GONE);
             resetGame();
             revealAndShuffleCards();
+            enableAllCardClicks();
         });
 
         iv_main.setOnClickListener(view -> {
@@ -227,6 +227,13 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
         pauseOverlay.setVisibility(View.GONE);
         gameWinOverlay.setVisibility(View.GONE);
         gameOverOverlay.setVisibility(View.GONE);
+
+        for (int id : iv_CardIds) {
+            ImageView card = findViewById(id);
+            if (card != null) {
+                card.setEnabled(true);
+            }
+        }
     }
 
     private void startGameTimer() {
