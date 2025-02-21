@@ -18,9 +18,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingBottom="25dp"
         android:weightSum="10"
         android:orientation="vertical"
-        android:background="@drawable/bg_cardgame">
+        android:background="@drawable/bg_cardgame_alt">
 
         <!--card container-->
         <RelativeLayout
@@ -71,7 +72,7 @@
             android:layout_height="0dp"
             android:layout_weight="8"
             android:orientation="vertical"
-            android:background="@drawable/paper_cardgame"
+
             android:weightSum="8">
 
             <LinearLayout
@@ -91,7 +92,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Time Left: "
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:fontFamily="@font/villagers"
                         android:textSize="21sp"/>
 
@@ -100,7 +101,7 @@
                         android:id="@+id/tv_timer"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:fontFamily="@font/villagers"
                         android:text="20 SECS"
                         android:textSize="21sp" />
@@ -117,7 +118,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/villagers"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:text="points: "
                         android:textSize="21sp" />
 
@@ -126,7 +127,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/villagers"
-                        android:textColor="@color/white"
+                        android:textColor="@color/black"
                         android:text="0"
                         android:textSize="21sp" />
 
@@ -222,7 +223,7 @@
                     android:layout_marginBottom="1dp"
                     android:fontFamily="@font/villagers"
                     android:text="Match Score:"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="23dp" />
 
                 <TextView
@@ -233,7 +234,7 @@
                     android:layout_marginBottom="1dp"
                     android:fontFamily="@font/villagers"
                     android:text="0"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="23dp" />
 
             </LinearLayout>
