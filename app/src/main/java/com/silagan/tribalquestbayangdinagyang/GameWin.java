@@ -46,8 +46,6 @@ public class GameWin extends AppCompatActivity {
         // Retrieve the score passed from the GameView
         int points = Objects.requireNonNull(getIntent().getExtras()).getInt("points", 0);
         gameWin.startAnimation(AnimationUtils.loadAnimation(this, R.anim.pop_up_anim));
-        playAgain.startAnimation(AnimationUtils.loadAnimation(this, R.anim.pop_up_anim));
-        main.startAnimation(AnimationUtils.loadAnimation(this, R.anim.pop_up_anim));
 
         // Display the current score
         score.setText(String.valueOf(points)); // Convert int to String
