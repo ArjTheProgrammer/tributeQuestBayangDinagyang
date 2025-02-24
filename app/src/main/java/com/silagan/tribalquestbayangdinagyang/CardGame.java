@@ -39,7 +39,7 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
     private ImageView quitButton;
     private RelativeLayout pauseOverlay, gameWinOverlay, gameOverOverlay;
     private int highScore = 0; // Track high score
-    private MediaPlayer confettiSound, minigameSound;
+    private MediaPlayer confettiSound, minigameSound, buttonSound;
     private boolean isPaused = false;
     private boolean isWaitingForMismatch = false;
 
@@ -134,12 +134,26 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
         tv_highscore = findViewById(R.id.tv_highscore);
         confettiSound = MediaPlayer.create(this, R.raw.confetti);
         minigameSound = MediaPlayer.create(this, R.raw.minigame2);
+        buttonSound = MediaPlayer.create(this, R.raw.button);
 
         // Hide overlays initially
         pauseOverlay.setVisibility(View.GONE);
         gameWinOverlay.setVisibility(View.GONE);
 
+        if (buttonSound == null) {
+        } else {
+            // Set volume if needed
+            buttonSound.setVolume(1.0f, 1.0f);
+        }
+
+
         resumeButton.setOnClickListener(v -> {
+            playButtonSound();
+            if (minigameSound != null){
+                minigameSound.setLooping(true);
+                minigameSound.start();
+            }
+
             if (isPaused && gameStarted) {
                 resumeGame();
                 startGameTimer();
@@ -147,6 +161,15 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
         });
 
         restartButton.setOnClickListener(v -> {
+            playButtonSound();
+            if (minigameSound != null) {
+                minigameSound.stop();
+                minigameSound.release();
+                minigameSound = MediaPlayer.create(this, R.raw.minigame2);
+                minigameSound.setLooping(true);
+                minigameSound.start();
+            }
+
             // Remove the isPaused check to allow restart at any time
             resetGame();
             revealAndShuffleCards();
@@ -156,10 +179,14 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
         });
 
         quitButton.setOnClickListener(v -> {
+            playButtonSound();
+
             finish(); // This will close the activity
         });
 
         iv_start.setOnClickListener(v -> {
+            playButtonSound();
+
             if (!gameStarted) {
                 gameStarted = true;
                 resetGame();
@@ -177,6 +204,8 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
         });
 
         iv_pause.setOnClickListener(v -> {
+            playButtonSound();
+
             if (isPaused) {
                 resumeGame();
             } else {
@@ -185,29 +214,74 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
         });
 
         iv_playagain.setOnClickListener(view -> {
+            playButtonSound();
             gameWinOverlay.setVisibility(View.GONE);
             resetGame();
             revealAndShuffleCards();
             enableAllCardClicks();
+
+
+            if (minigameSound != null) {
+                minigameSound.stop();
+                minigameSound.release();
+                minigameSound = MediaPlayer.create(this, R.raw.minigame2);
+                minigameSound.setLooping(true);
+                minigameSound.start();
+            }
         });
 
         iv_main.setOnClickListener(view -> {
+            playButtonSound();
             finish(); // Return to main menu
         });
 
         iv_goPlayagain.setOnClickListener(view -> {
+            playButtonSound();
             gameOverOverlay.setVisibility(View.GONE);
             resetGame();
             revealAndShuffleCards();
+
+            if (minigameSound != null) {
+                minigameSound.stop();
+                minigameSound.release();
+                minigameSound = MediaPlayer.create(this, R.raw.minigame2);
+                minigameSound.setLooping(true);
+                minigameSound.start();
+            }
         });
 
         iv_goMain.setOnClickListener(view -> {
+            playButtonSound();
             finish();
         });
         // Initially disable the game until start button is pressed
         disableGame();
     }
 
+    private void playButtonSound() {
+        try {
+            if (buttonSound != null) {
+                // Instead of seeking, stop and prepare again for more reliable playback
+                if (buttonSound.isPlaying()) {
+                    buttonSound.stop();
+                    buttonSound.prepare();
+                }
+                buttonSound.start();
+            }
+        } catch (Exception e) {
+            // Log the error or handle it appropriately
+            // Log.e("CardGame", "Error playing button sound", e);
+
+            // Try to recreate the sound if there was an error
+            try {
+                buttonSound.release();
+                buttonSound = MediaPlayer.create(this, R.raw.button);
+            } catch (Exception ex) {
+                // Log.e("CardGame", "Failed to recreate button sound", ex);
+                buttonSound = null;
+            }
+        }
+    }
     private void resetGame() {
         if (timerCountdown != null) {
             timerCountdown.cancel();
@@ -548,6 +622,11 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
         if (minigameSound != null) {
             minigameSound.release();
             minigameSound = null;
+        }
+
+        if (buttonSound != null) {
+            buttonSound.release();
+            buttonSound = null;
         }
     }
 
