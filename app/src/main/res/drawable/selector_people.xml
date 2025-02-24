@@ -3,12 +3,12 @@
     <item android:state_pressed="true">
         <layer-list>
             <item>
-                <bitmap android:src="@drawable/hover_minigame"/>
+                <bitmap android:src="@drawable/hover_people"/>
             </item>
         </layer-list>
     </item>
     <!-- Normal state -->
     <item>
-        <bitmap android:src="@drawable/button_easteregg"/>
+        <bitmap android:src="@drawable/button_people"/>
     </item>
 </selector>

@@ -29,4 +29,7 @@ public class About extends AppCompatActivity {
         startActivity(i);
         overridePendingTransition(0,0);
     }
+
+    public void toPeople(View view) {
+    }
 }
