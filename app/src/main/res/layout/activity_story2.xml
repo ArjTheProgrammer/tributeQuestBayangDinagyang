@@ -11,14 +11,15 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/story2"/>
+        android:layout_margin="10dp"
+        android:src="@drawable/story_page2"/>
 
     <ImageView
         android:id="@+id/skip_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/selector_skip"
-        android:layout_margin="20dp"
+        android:layout_margin="15dp"
         android:onClick="toSkip"
         android:contentDescription="to skip"
         android:layout_alignParentEnd="true" />

@@ -11,7 +11,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/story3"/>
+        android:src="@drawable/story_page3"/>
 
     <ImageView
         android:id="@+id/prev_button"
@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:src="@drawable/selector_play"
         android:layout_alignParentEnd="true"
-        android:layout_margin="20dp"
+        android:layout_margin="10dp"
         android:onClick="toMechanics"
         android:contentDescription="to mechanics"
         android:layout_alignParentBottom="true"/>
