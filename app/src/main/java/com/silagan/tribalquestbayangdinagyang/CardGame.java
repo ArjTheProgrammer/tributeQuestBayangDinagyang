@@ -5,6 +5,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -38,7 +39,7 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
     private ImageView quitButton;
     private RelativeLayout pauseOverlay, gameWinOverlay, gameOverOverlay;
     private int highScore = 0; // Track high score
-
+    private MediaPlayer confettiSound;
     private boolean isPaused = false;
     private boolean isWaitingForMismatch = false;
 
@@ -131,6 +132,7 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
         // Initialize win screen text views
         tv_finalscore = findViewById(R.id.tv_finalscore);
         tv_highscore = findViewById(R.id.tv_highscore);
+        confettiSound = MediaPlayer.create(this, R.raw.confetti);
 
         // Hide overlays initially
         pauseOverlay.setVisibility(View.GONE);
@@ -329,6 +331,11 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
         // Set the score text views
         tv_finalscore.setText(String.valueOf(score));
         tv_highscore.setText(String.valueOf(highScore));
+
+        if(confettiSound != null){
+            confettiSound.seekTo(0);
+            confettiSound.start();
+        }
 
         // Show the game win overlay with animation
         gameWinOverlay.setVisibility(View.VISIBLE);
