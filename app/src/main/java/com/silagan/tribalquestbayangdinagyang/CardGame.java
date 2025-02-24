@@ -39,7 +39,7 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
     private ImageView quitButton;
     private RelativeLayout pauseOverlay, gameWinOverlay, gameOverOverlay;
     private int highScore = 0; // Track high score
-    private MediaPlayer confettiSound;
+    private MediaPlayer confettiSound, minigameSound;
     private boolean isPaused = false;
     private boolean isWaitingForMismatch = false;
 
@@ -133,6 +133,7 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
         tv_finalscore = findViewById(R.id.tv_finalscore);
         tv_highscore = findViewById(R.id.tv_highscore);
         confettiSound = MediaPlayer.create(this, R.raw.confetti);
+        minigameSound = MediaPlayer.create(this, R.raw.minigame2);
 
         // Hide overlays initially
         pauseOverlay.setVisibility(View.GONE);
@@ -164,6 +165,11 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
                 resetGame();
                 revealAndShuffleCards();
                 iv_start.setImageResource(R.drawable.hover_home_start);
+
+                if (minigameSound != null){
+                    minigameSound.setLooping(true);
+                    minigameSound.start();
+                }
             } else {
                 resetGame();
                 revealAndShuffleCards();
@@ -270,6 +276,11 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
 
     private void resumeGame() {
         if (isPaused && timeRemaining > 0) {
+
+            if(minigameSound!= null && !minigameSound.isPlaying()){
+                minigameSound.start();
+            }
+
             pauseOverlay.animate()
                     .alpha(0f)
                     .setDuration(300)
@@ -289,6 +300,10 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
             timerCountdown.cancel();
         }
         isPaused = true;
+
+        if(minigameSound != null && minigameSound.isPlaying()){
+            minigameSound.pause();
+        }
 
         pauseOverlay.setAlpha(0f);
         pauseOverlay.setVisibility(View.VISIBLE);
@@ -337,6 +352,9 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
             confettiSound.start();
         }
 
+        if (minigameSound != null && minigameSound.isPlaying()) {
+            minigameSound.pause();
+        }
         // Show the game win overlay with animation
         gameWinOverlay.setVisibility(View.VISIBLE);
         gameWinOverlay.setAlpha(0f);
@@ -352,6 +370,10 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
         }
 
         tv_goScore.setText(String.valueOf(score));
+
+        if (minigameSound != null && minigameSound.isPlaying()) {
+            minigameSound.pause();
+        }
 
         // Check if score is zero to apply the slide-up animation
         if (score == 0) {
@@ -511,6 +533,37 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
             resetGame();
         } else {
             super.onBackPressed();
+        }
+    }
+
+    @Override
+    protected void onDestroy(){
+        super.onDestroy();
+
+        if (confettiSound != null) {
+            confettiSound.release();
+            confettiSound = null;
+        }
+
+        if (minigameSound != null) {
+            minigameSound.release();
+            minigameSound = null;
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (minigameSound != null && minigameSound.isPlaying()) {
+            minigameSound.pause();
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (minigameSound != null && gameStarted && !isPaused && !gameCompleted) {
+            minigameSound.start();
         }
     }
 
