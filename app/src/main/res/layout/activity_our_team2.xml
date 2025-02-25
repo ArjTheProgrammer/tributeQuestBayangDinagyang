@@ -5,20 +5,20 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OurTeam">
-    
+    tools:context=".OurTeam2">
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/bg_about"
         android:scaleType="centerCrop"/>
-    
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:weightSum="10">
-        
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -42,7 +42,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/heads_list"
+                android:src="@drawable/committees_list_1"
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="40dp"
                 android:layout_marginBottom="50dp"/>
@@ -50,16 +50,15 @@
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
+                android:src="@drawable/selector_next"
                 android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginLeft="5dp"
-                android:layout_marginEnd="12dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginBottom="20dp"
+                android:onClick="toNext"
                 android:adjustViewBounds="true"
                 android:contentDescription="to previous"
-                android:onClick="toNext"
-                android:src="@drawable/selector_next" />
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="5dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="20dp"/>
 
             <ImageView
                 android:layout_width="50dp"
@@ -75,7 +74,7 @@
 
 
         </RelativeLayout>
-        
+
     </LinearLayout>
 
 </RelativeLayout>

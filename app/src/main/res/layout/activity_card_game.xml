@@ -21,7 +21,7 @@
         android:paddingBottom="25dp"
         android:weightSum="10"
         android:orientation="vertical"
-        android:background="@drawable/bg_cardgame_alt">
+        android:background="@drawable/bg_cardgame">
 
         <!--card container-->
         <RelativeLayout
@@ -72,13 +72,13 @@
             android:layout_height="0dp"
             android:layout_weight="8"
             android:orientation="vertical"
-
-            android:weightSum="8">
+            android:background="@drawable/minigame_card_paper"
+            android:weightSum="10">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="0.5"
+                android:layout_weight="1"
                 android:weightSum="2"
                 android:orientation="horizontal">
 
@@ -92,7 +92,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Time Left: "
-                        android:textColor="@color/black"
+                        android:layout_marginLeft="50dp"
+                        android:textColor="#472A05"
                         android:fontFamily="@font/villagers"
                         android:textSize="21sp"/>
 
@@ -101,7 +102,7 @@
                         android:id="@+id/tv_timer"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/black"
+                        android:textColor="#472A05"
                         android:fontFamily="@font/villagers"
                         android:text="20 SECS"
                         android:textSize="21sp" />
@@ -118,7 +119,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/villagers"
-                        android:textColor="@color/black"
+                        android:textColor="#472A05"
                         android:text="points: "
                         android:textSize="21sp" />
 
@@ -127,7 +128,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/villagers"
-                        android:textColor="@color/black"
+                        android:textColor="#472A05"
                         android:text="0"
                         android:textSize="21sp" />
 
@@ -140,7 +141,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:gravity="center"
-                android:layout_weight="7"
+                android:layout_weight="8"
                 android:orientation="vertical"
                 android:weightSum="4">
 
@@ -213,8 +214,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="0.5"
-                android:gravity="center"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
                 android:orientation="horizontal">
 
                 <TextView
@@ -223,7 +224,7 @@
                     android:layout_marginBottom="1dp"
                     android:fontFamily="@font/villagers"
                     android:text="Match Score:"
-                    android:textColor="@color/black"
+                    android:textColor="#472A05"
                     android:textSize="23dp" />
 
                 <TextView
@@ -234,7 +235,7 @@
                     android:layout_marginBottom="1dp"
                     android:fontFamily="@font/villagers"
                     android:text="0"
-                    android:textColor="@color/black"
+                    android:textColor="#472A05"
                     android:textSize="23dp" />
 
             </LinearLayout>
@@ -312,13 +313,6 @@
         android:visibility="gone"
         android:gravity="center">
 
-        <pl.droidsonroids.gif.GifImageView
-            android:id="@+id/confetti_gif"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:adjustViewBounds="true"
-            android:src="@drawable/confetti"/>
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -328,40 +322,32 @@
             android:weightSum="10">
 
             <!--top part of celebrate-->
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="7"
-                android:gravity="center">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/sign_winner" />
+                android:orientation="vertical"
+                android:gravity="center|bottom"
+                android:background="@drawable/sign_winner">
 
                 <TextView
                     android:id="@+id/tv_finalscore"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="82dp"
-                    android:layout_centerHorizontal="true"
                     android:text="0"
-
                     android:fontFamily="@font/sigher"
+                    android:layout_marginBottom="30dp"
                     android:textSize="70sp" />
 
                 <TextView
                     android:id="@+id/tv_highscore"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_centerHorizontal="true"
                     android:fontFamily="@font/sigher"
-                    android:layout_marginBottom="12dp"
+                    android:layout_marginBottom="20dp"
                     android:text="0"
                     android:textSize="30sp" />
-            </RelativeLayout>
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -394,13 +380,21 @@
 
         </LinearLayout>
 
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/confetti_gif"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/confetti"/>
+
     </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/gameOverOverlay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/bg_cardgame_timesup"
+        android:background="@drawable/bg_cardgame"
         android:visibility="gone"
         android:gravity="center">
 
@@ -412,45 +406,51 @@
             android:orientation="vertical"
             android:weightSum="10">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal">
+
+                <ImageView
+                    android:id="@+id/sign_gameover"
+                    android:layout_width="400dp"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/sign_gameover"/>
+
+            </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="7"
+                android:layout_weight="4"
+                android:background="@drawable/paper_cardgame"
                 android:gravity="center"
-                android:orientation="vertical"
-                android:weightSum="2">
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="32sp"
+                    android:fontFamily="@font/sigher"
+                    android:text="SCORE"
+                    android:textColor="#654321"
+                    android:textSize="35sp" />
 
+                <TextView
+                    android:id="@+id/tv_goScore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|bottom"
+                    android:layout_marginBottom="20sp"
+                    android:text="0"
+                    android:fontFamily="@font/sigher"
+                    android:textColor="#654321"
+                    android:textSize="40sp" />
 
-                <LinearLayout
-                    android:layout_width="300dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/paper_cardgame"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginBottom="32sp"
-                        android:fontFamily="@font/sigher"
-                        android:text="SCORE"
-                        android:textColor="#654321"
-                        android:textSize="35sp" />
-
-                    <TextView
-                        android:id="@+id/tv_goScore"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center|bottom"
-                        android:layout_marginBottom="20sp"
-                        android:text="0"
-                        android:fontFamily="@font/sigher"
-                        android:textColor="#654321"
-                        android:textSize="40sp" />
-                </LinearLayout>
 
             </LinearLayout>
 
