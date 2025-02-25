@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageView exit;
     private ImageView miniGame;
     private Animation floatAnimation;
+    private Sound sound;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,10 @@ public class MainActivity extends AppCompatActivity {
         exit = findViewById(R.id.exit_button);
 
         miniGame.startAnimation(AnimationUtils.loadAnimation(this, R.anim.float_button));
+
+        sound = Sound.getInstance(this);
+
+        sound.playMainAppMusic();
     }
 
     public void toStart(View view) {
@@ -55,10 +60,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void toExit(View view) {
+        sound.stopAllMusic();
+        sound.cleanup();
         finishAffinity();
     }
 
     public void toMiniGame(View view) {
+        sound.stopAllMusic();
         Intent i = new Intent(this, CardGame.class);
         startActivity(i);
         overridePendingTransition(0,0);
