@@ -21,7 +21,7 @@
         android:paddingBottom="25dp"
         android:weightSum="10"
         android:orientation="vertical"
-        android:background="@drawable/bg_cardgame_alt">
+        android:background="@drawable/bg_cardgame">
 
         <!--card container-->
         <RelativeLayout
@@ -72,13 +72,13 @@
             android:layout_height="0dp"
             android:layout_weight="8"
             android:orientation="vertical"
-
-            android:weightSum="8">
+            android:background="@drawable/minigame_card_paper"
+            android:weightSum="10">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="0.5"
+                android:layout_weight="1"
                 android:weightSum="2"
                 android:orientation="horizontal">
 
@@ -92,7 +92,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Time Left: "
-                        android:textColor="@color/black"
+                        android:layout_marginLeft="50dp"
+                        android:textColor="#472A05"
                         android:fontFamily="@font/villagers"
                         android:textSize="21sp"/>
 
@@ -101,7 +102,7 @@
                         android:id="@+id/tv_timer"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/black"
+                        android:textColor="#472A05"
                         android:fontFamily="@font/villagers"
                         android:text="20 SECS"
                         android:textSize="21sp" />
@@ -118,7 +119,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/villagers"
-                        android:textColor="@color/black"
+                        android:textColor="#472A05"
                         android:text="points: "
                         android:textSize="21sp" />
 
@@ -127,7 +128,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/villagers"
-                        android:textColor="@color/black"
+                        android:textColor="#472A05"
                         android:text="0"
                         android:textSize="21sp" />
 
@@ -140,7 +141,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:gravity="center"
-                android:layout_weight="7"
+                android:layout_weight="8"
                 android:orientation="vertical"
                 android:weightSum="4">
 
@@ -213,8 +214,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="0.5"
-                android:gravity="center"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
                 android:orientation="horizontal">
 
                 <TextView
@@ -223,7 +224,7 @@
                     android:layout_marginBottom="1dp"
                     android:fontFamily="@font/villagers"
                     android:text="Match Score:"
-                    android:textColor="@color/black"
+                    android:textColor="#472A05"
                     android:textSize="23dp" />
 
                 <TextView
@@ -234,7 +235,7 @@
                     android:layout_marginBottom="1dp"
                     android:fontFamily="@font/villagers"
                     android:text="0"
-                    android:textColor="@color/black"
+                    android:textColor="#472A05"
                     android:textSize="23dp" />
 
             </LinearLayout>
