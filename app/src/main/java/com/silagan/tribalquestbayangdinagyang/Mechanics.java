@@ -15,6 +15,7 @@ public class Mechanics extends AppCompatActivity {
     ImageView ig_mechanics;
     private int[] images = {R.drawable.mech_1, R.drawable.mech_2, R.drawable.mech_3};
     private int currentIndex = 0;
+    Sound sound;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +28,12 @@ public class Mechanics extends AppCompatActivity {
             return insets;
         });
 
+        sound = Sound.getInstance(this);
         ig_mechanics = (ImageView)  findViewById(R.id.ig_mechanics);
     }
 
     public void toNext(View view) {
+        sound.playButtonClickSound();
         if ( currentIndex == images.length - 1) {
             currentIndex = 0;
         } else {
@@ -40,6 +43,7 @@ public class Mechanics extends AppCompatActivity {
     }
 
     public void toPrev(View view) {
+        sound.playButtonClickSound();
         if (currentIndex == 0) {
             currentIndex = 2;
         } else {
@@ -49,12 +53,15 @@ public class Mechanics extends AppCompatActivity {
     }
 
     public void toStory(View view) {
+        sound.playButtonClickSound();
         Intent i = new Intent(this, Story3.class);
         startActivity(i);
         overridePendingTransition(0,0);
     }
 
     public void toGame(View view) {
+        sound.playButtonClickSound();
+        sound.stopAllMusic();
         CollectGame collectGame = new CollectGame(this);
         setContentView(collectGame);
     }
