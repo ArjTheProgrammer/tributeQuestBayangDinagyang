@@ -32,6 +32,9 @@ public class Sound {
     private boolean initialized = false;
 
     private static Sound instance;
+    private boolean bgMusicWasPlaying = false;
+    private boolean minigameMusicWasPlaying = false;
+    private boolean mainAppMusicWasPlaying = false;
 
     public static synchronized Sound getInstance(Context context) {
         if (instance == null) {
@@ -196,28 +199,49 @@ public class Sound {
     }
 
     // Pause all music (for app lifecycle events)
+// Update the pauseAll method to track state
     public void pauseAll() {
         if (!initialized) return;
 
-        if (bgMusicPlayer != null && bgMusicPlayer.isPlaying()) {
-            bgMusicPlayer.pause();
+        if (bgMusicPlayer != null) {
+            bgMusicWasPlaying = bgMusicPlayer.isPlaying();
+            if (bgMusicWasPlaying) {
+                bgMusicPlayer.pause();
+            }
         }
 
-        if (minigameMusicPlayer != null && minigameMusicPlayer.isPlaying()) {
-            minigameMusicPlayer.pause();
+        if (minigameMusicPlayer != null) {
+            minigameMusicWasPlaying = minigameMusicPlayer.isPlaying();
+            if (minigameMusicWasPlaying) {
+                minigameMusicPlayer.pause();
+            }
         }
 
-        if (mainAppMusicPlayer != null && mainAppMusicPlayer.isPlaying()) {
-            mainAppMusicPlayer.pause();
+        if (mainAppMusicPlayer != null) {
+            mainAppMusicWasPlaying = mainAppMusicPlayer.isPlaying();
+            if (mainAppMusicWasPlaying) {
+                mainAppMusicPlayer.pause();
+            }
         }
     }
 
-    // Resume previously playing music (for app lifecycle events)
+    // Only resume tracks that were playing before
     public void resumeAll() {
-        // To implement this properly, you would need to track which music was playing
-        // This is a simplified version that just resumes background music
-        if (bgMusicPlayer != null) {
+        if (!initialized) return;
+
+        if (bgMusicPlayer != null && bgMusicWasPlaying) {
             bgMusicPlayer.start();
+            bgMusicWasPlaying = false; // Reset flag after resuming
+        }
+
+        if (minigameMusicPlayer != null && minigameMusicWasPlaying) {
+            minigameMusicPlayer.start();
+            minigameMusicWasPlaying = false; // Reset flag after resuming
+        }
+
+        if (mainAppMusicPlayer != null && mainAppMusicWasPlaying) {
+            mainAppMusicPlayer.start();
+            mainAppMusicWasPlaying = false; // Reset flag after resuming
         }
     }
 }

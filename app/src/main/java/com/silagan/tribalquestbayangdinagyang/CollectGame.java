@@ -62,6 +62,8 @@ public class CollectGame extends View {
     Intent toGameWin;
 
     boolean bombCollected;
+    Activity activity;
+    Sound sound;
 
     public CollectGame(Context context) {
         super(context);
@@ -156,6 +158,9 @@ public class CollectGame extends View {
 
         toGameOver = new Intent(context, GameOver.class);
         toGameWin = new Intent(context, GameWin.class);
+
+        sound = Sound.getInstance(activity);
+        sound.playBackgroundMusic();
 
         startTime = SystemClock.elapsedRealtime();
     }
@@ -426,7 +431,6 @@ public class CollectGame extends View {
         Intent intent = i;
         intent.putExtra("points", points);
         if (context instanceof Activity) { // Ensure context is an Activity
-            Activity activity = (Activity) context;
             activity.startActivity(intent);
             activity.overridePendingTransition(0, 0); // Now it's safe to call
             activity.finish();
@@ -444,6 +448,8 @@ public class CollectGame extends View {
             if (!isPaused) {
                 // Check if pause button was clicked
                 if (pauseButtonRect.contains((int)touchX, (int)touchY)) {
+                    sound.playButtonClickSound();
+                    sound.pauseAll();
                     isPaused = true;
                     pauseStartTime = SystemClock.elapsedRealtime();
                     createBlurredBackground(new Canvas());
@@ -452,6 +458,8 @@ public class CollectGame extends View {
             } else {
                 // Check menu button clicks
                 if (continueButtonRect.contains((int) touchX, (int) touchY)) {
+                    sound.playButtonClickSound();
+                    sound.resumeAll();
                     isPaused = false;
                     totalPausedTime += (SystemClock.elapsedRealtime() - pauseStartTime);
                     if (blurredBackground != null) {
@@ -461,11 +469,17 @@ public class CollectGame extends View {
                     return true;
                 }
                 if (restartButtonRect.contains((int) touchX, (int) touchY)) {
+                    sound.playButtonClickSound();
                     restartGame();
                     return true;
                 }
                 if (exitButtonRect.contains((int) touchX, (int) touchY)) {
-                    ((Activity) context).finish();
+                    sound.playButtonClickSound();
+                    sound.stopAllMusic();
+                    sound.playMainAppMusic();
+                    Intent i = new Intent((Activity) context, MainActivity.class);
+                    ((Activity) context).startActivity(i);
+                    ((Activity) context).overridePendingTransition(0,0);
                     return true;
                 }
                 return true;
