@@ -412,6 +412,9 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
                     .setDuration(300)
                     .setListener(null);
         }
+
+        Sound.getInstance(this).playMiniGameGOSounds();
+
     }
 
     CardInfo cardInfo1 = null;

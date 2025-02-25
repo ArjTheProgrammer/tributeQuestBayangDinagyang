@@ -18,6 +18,7 @@ public class GameOver extends AppCompatActivity {
 
     private ImageView tryAgain;
     private ImageView main;
+    private Sound sound;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +36,9 @@ public class GameOver extends AppCompatActivity {
         main = findViewById(R.id.toMain);
 
         gameOver.startAnimation(AnimationUtils.loadAnimation(this, R.anim.swinging_anim));
+        sound = Sound.getInstance(this);
+
+        Sound.getInstance(this).playMainGameGOSounds();
     }
 
     public void toCollectGame(View view) {
@@ -47,4 +51,6 @@ public class GameOver extends AppCompatActivity {
         startActivity(intent);
         overridePendingTransition(0, 0);
     }
+
+
 }

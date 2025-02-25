@@ -18,6 +18,8 @@ public class Sound {
     private static final String MAIN_APP_MUSIC = "mainAppMusic";
     private static final String BUTTON_CLICK = "buttonClick";
     private static final String CONFETTI = "confetti";
+    private static final String MAINGAME_GAME_OVER = "maingameGameOver";
+    private static final String MINIGAME_GAME_OVER = "minigameGameOver";
 
     // MediaPlayer for background music (supports looping)
     private MediaPlayer bgMusicPlayer;
@@ -80,6 +82,9 @@ public class Sound {
         // Note: Replace R.raw.xxx with your actual resource IDs
         soundMap.put(BUTTON_CLICK, soundPool.load(context, R.raw.button_click, 1));
         soundMap.put(CONFETTI, soundPool.load(context, R.raw.confetti, 1));
+
+        soundMap.put(MAINGAME_GAME_OVER, soundPool.load(context, R.raw.maingame_gameover, 1));
+        soundMap.put(MINIGAME_GAME_OVER, soundPool.load(context, R.raw.minigame_gameover, 1));
     }
 
     private void initializeMediaPlayers() {
@@ -243,5 +248,17 @@ public class Sound {
             mainAppMusicPlayer.start();
             mainAppMusicWasPlaying = false; // Reset flag after resuming
         }
+    }
+
+    public void playMainGameGOSounds(){
+        playSound(MAINGAME_GAME_OVER);
+
+        stopAllMusic();
+    }
+
+    public void playMiniGameGOSounds(){
+        playSound(MINIGAME_GAME_OVER);
+
+        stopAllMusic();
     }
 }
