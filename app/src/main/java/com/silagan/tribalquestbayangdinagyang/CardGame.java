@@ -4,7 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
-import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -38,7 +38,6 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
     private ImageView quitButton;
     private RelativeLayout pauseOverlay, gameWinOverlay, gameOverOverlay;
     private int highScore = 0; // Track high score
-
     private boolean isPaused = false;
     private boolean isWaitingForMismatch = false;
 
@@ -53,6 +52,8 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
             R.drawable.card_1, R.drawable.card_2, R.drawable.card_3, R.drawable.card_4,
             R.drawable.card_5, R.drawable.card_6, R.drawable.card_7, R.drawable.card_8
     };
+
+    private Sound sound;
 
     private void revealAndShuffleCards() {
         ArrayList<Integer> shuffledDrawableIds = new ArrayList<>();
@@ -136,7 +137,17 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
         pauseOverlay.setVisibility(View.GONE);
         gameWinOverlay.setVisibility(View.GONE);
 
+        sound = Sound.getInstance(this);
+
+        sound.playMinigameMusic();
+
+
         resumeButton.setOnClickListener(v -> {
+
+            sound.playButtonClickSound();
+            sound.playMinigameMusic();
+
+
             if (isPaused && gameStarted) {
                 resumeGame();
                 startGameTimer();
@@ -144,6 +155,9 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
         });
 
         restartButton.setOnClickListener(v -> {
+
+            sound.playButtonClickSound();
+            sound.playMinigameMusic();
             // Remove the isPaused check to allow restart at any time
             resetGame();
             revealAndShuffleCards();
@@ -153,15 +167,20 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
         });
 
         quitButton.setOnClickListener(v -> {
+            sound.playButtonClickSound();
+            sound.stopAllMusic();
+            sound.playMainAppMusic();
             finish(); // This will close the activity
         });
 
         iv_start.setOnClickListener(v -> {
+            sound.playButtonClickSound();
             if (!gameStarted) {
                 gameStarted = true;
                 resetGame();
                 revealAndShuffleCards();
                 iv_start.setImageResource(R.drawable.hover_home_start);
+
             } else {
                 resetGame();
                 revealAndShuffleCards();
@@ -169,6 +188,9 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
         });
 
         iv_pause.setOnClickListener(v -> {
+            sound.playButtonClickSound();
+            sound.stopAllMusic();
+
             if (isPaused) {
                 resumeGame();
             } else {
@@ -177,23 +199,38 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
         });
 
         iv_playagain.setOnClickListener(view -> {
+            sound.playButtonClickSound();
+            sound.stopAllMusic();
+            sound.playMinigameMusic();
             gameWinOverlay.setVisibility(View.GONE);
             resetGame();
             revealAndShuffleCards();
             enableAllCardClicks();
+
         });
 
         iv_main.setOnClickListener(view -> {
+            sound.playButtonClickSound();
+            sound.stopAllMusic();
+            sound.playMainAppMusic();
             finish(); // Return to main menu
         });
 
         iv_goPlayagain.setOnClickListener(view -> {
+            sound.playButtonClickSound();
+            sound.stopAllMusic();
+            sound.playMinigameMusic();
             gameOverOverlay.setVisibility(View.GONE);
+
             resetGame();
             revealAndShuffleCards();
+
         });
 
         iv_goMain.setOnClickListener(view -> {
+            sound.playButtonClickSound();
+            sound.stopAllMusic();
+            sound.playMainAppMusic();
             finish();
         });
         // Initially disable the game until start button is pressed
@@ -268,6 +305,7 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
 
     private void resumeGame() {
         if (isPaused && timeRemaining > 0) {
+
             pauseOverlay.animate()
                     .alpha(0f)
                     .setDuration(300)
@@ -329,7 +367,6 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
         // Set the score text views
         tv_finalscore.setText(String.valueOf(score));
         tv_highscore.setText(String.valueOf(highScore));
-
         // Show the game win overlay with animation
         gameWinOverlay.setVisibility(View.VISIBLE);
         gameWinOverlay.setAlpha(0f);
