@@ -12,7 +12,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class OurTeam extends AppCompatActivity {
+public class OurTeam3 extends AppCompatActivity {
 
     private ImageView ourTeam;
     Sound sound;
@@ -21,7 +21,7 @@ public class OurTeam extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_our_team);
+        setContentView(R.layout.activity_our_team3);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -35,14 +35,21 @@ public class OurTeam extends AppCompatActivity {
 
     public void toNext(View view) {
         sound.playButtonClickSound();
-        Intent i = new Intent(this, OurTeam2.class);
+        Intent i = new Intent(this, OurTeam.class);
         startActivity(i);
         overridePendingTransition(0,0);
     }
 
     public void toPrev(View view) {
         sound.playButtonClickSound();
-        Intent i = new Intent(this, OurTeam3.class);
+        Intent i = new Intent(this, OurTeam2.class);
+        startActivity(i);
+        overridePendingTransition(0,0);
+    }
+
+    public void toMain(View view) {
+        sound.playButtonClickSound();
+        Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
         overridePendingTransition(0,0);
     }

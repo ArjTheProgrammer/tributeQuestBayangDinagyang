@@ -36,6 +36,7 @@ public class About extends AppCompatActivity {
     }
 
     public void toPeople(View view) {
+        sound.playButtonClickSound();
         Intent i = new Intent(this, OurTeam.class);
         startActivity(i);
         overridePendingTransition(0,0);

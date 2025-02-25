@@ -16,33 +16,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/sign_about"
-        android:layout_marginBottom="30dp"/>
+        android:layout_marginBottom="70dp"/>
 
     <ImageView
-        android:layout_width="125dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="55dp"
         android:adjustViewBounds="true"
-        android:src="@drawable/selector_ourteam"
-        android:layout_gravity="center_horizontal"
+        android:contentDescription="to people"
         android:onClick="toPeople"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="150dp"
-        android:layout_marginLeft="75dp"
-        android:layout_marginRight="10dp"
-        android:contentDescription="to people"/>
-
-    <ImageView
-        android:layout_width="125dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:adjustViewBounds="true"
-        android:contentDescription="to main"
-        android:onClick="toMain"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="150dp"
-        android:layout_marginRight="75dp"
-        android:layout_marginLeft="10dp"
-        android:src="@drawable/selector_backtomain" />
+        android:src="@drawable/selector_ourteam" />
 
 </RelativeLayout>

@@ -431,9 +431,9 @@ public class CollectGame extends View {
         Intent intent = i;
         intent.putExtra("points", points);
         if (context instanceof Activity) { // Ensure context is an Activity
-            activity.startActivity(intent);
-            activity.overridePendingTransition(0, 0); // Now it's safe to call
-            activity.finish();
+            context.startActivity(intent);
+            ((Activity) context).overridePendingTransition(0, 0); // Now it's safe to call
+            ((Activity) context).finish();
         } else {
             context.startActivity(intent); // Fallback, but no animation
         }

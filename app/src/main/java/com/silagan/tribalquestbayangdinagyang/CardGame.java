@@ -157,7 +157,7 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
         restartButton.setOnClickListener(v -> {
 
             sound.playButtonClickSound();
-            sound.playMinigameMusic();
+            sound.resumeAll();
             // Remove the isPaused check to allow restart at any time
             resetGame();
             revealAndShuffleCards();
@@ -189,7 +189,7 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
 
         iv_pause.setOnClickListener(v -> {
             sound.playButtonClickSound();
-            sound.stopAllMusic();
+            sound.pauseAll();
 
             if (isPaused) {
                 resumeGame();
