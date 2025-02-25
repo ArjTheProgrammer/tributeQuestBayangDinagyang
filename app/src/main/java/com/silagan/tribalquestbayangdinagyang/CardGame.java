@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -36,6 +37,8 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
     private ImageView resumeButton;
     private ImageView restartButton;
     private ImageView quitButton;
+
+    private ImageView gameOver;
     private RelativeLayout pauseOverlay, gameWinOverlay, gameOverOverlay;
     private int highScore = 0; // Track high score
     private boolean isPaused = false;
@@ -128,6 +131,9 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
         iv_main = findViewById(R.id.iv_main);
         iv_goPlayagain = findViewById(R.id.iv_goPlayagain);
         iv_goMain = findViewById(R.id.iv_goMain);
+        gameOver = findViewById(R.id.sign_gameover);
+
+        gameOver.startAnimation(AnimationUtils.loadAnimation(this, R.anim.swinging_anim));
 
         // Initialize win screen text views
         tv_finalscore = findViewById(R.id.tv_finalscore);
@@ -170,7 +176,9 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
             sound.playButtonClickSound();
             sound.stopAllMusic();
             sound.playMainAppMusic();
-            finish(); // This will close the activity
+            Intent i = new Intent(this, MainActivity.class);
+            startActivity(i);
+            overridePendingTransition(0,0);
         });
 
         iv_start.setOnClickListener(v -> {

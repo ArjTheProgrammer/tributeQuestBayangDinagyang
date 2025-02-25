@@ -69,9 +69,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void toMiniGame(View view) {
-        sound.playButtonClickSound();
-        sound.stopAllMusic();
-        Intent i = new Intent(this, CardGame.class);
+        Intent i = new Intent(this, Story4.class);
         startActivity(i);
         overridePendingTransition(0,0);
     }
