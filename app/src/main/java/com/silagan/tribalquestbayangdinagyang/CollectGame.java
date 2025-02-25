@@ -462,10 +462,12 @@ public class CollectGame extends View {
                 }
                 if (restartButtonRect.contains((int) touchX, (int) touchY)) {
                     restartGame();
-                    return true;
+                    return true; 
                 }
                 if (exitButtonRect.contains((int) touchX, (int) touchY)) {
-                    ((Activity) context).finish();
+                    Intent i = new Intent((Activity) context, MainActivity.class);
+                    ((Activity) context).startActivity(i);
+                    ((Activity) context).overridePendingTransition(0,0);
                     return true;
                 }
                 return true;
