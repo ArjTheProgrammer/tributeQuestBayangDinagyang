@@ -12,6 +12,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class Story1 extends AppCompatActivity {
 
+    Sound sound;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,21 +24,26 @@ public class Story1 extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        sound = Sound.getInstance(this);
     }
 
     public void toSkip(View view) {
+        sound.playButtonClickSound();
         Intent i = new Intent(this, Mechanics.class);
         startActivity(i);
         overridePendingTransition(0,0);
     }
 
     public void toNext(View view) {
+        sound.playButtonClickSound();
         Intent i = new Intent(this, Story2.class);
         startActivity(i);
         overridePendingTransition(0,0);
     }
 
     public void toMain(View view) {
+        sound.playButtonClickSound();
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
         overridePendingTransition(0,0);

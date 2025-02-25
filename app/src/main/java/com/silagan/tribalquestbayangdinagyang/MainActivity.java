@@ -48,24 +48,28 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void toStart(View view) {
+        sound.playButtonClickSound();
         Intent intent = new Intent(this, Story1.class);
         startActivity(intent);
         overridePendingTransition(0, 0);
     }
 
     public void toAbout(View view) {
+        sound.playButtonClickSound();
         Intent i = new Intent(this, About.class);
         startActivity(i);
         overridePendingTransition(0,0);
     }
 
     public void toExit(View view) {
+        sound.playButtonClickSound();
         sound.stopAllMusic();
         sound.cleanup();
         finishAffinity();
     }
 
     public void toMiniGame(View view) {
+        sound.playButtonClickSound();
         sound.stopAllMusic();
         Intent i = new Intent(this, CardGame.class);
         startActivity(i);
