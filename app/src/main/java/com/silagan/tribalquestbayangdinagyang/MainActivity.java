@@ -64,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
     public void toExit(View view) {
         sound.playButtonClickSound();
         sound.stopAllMusic();
-        sound.cleanup();
         finishAffinity();
     }
 
