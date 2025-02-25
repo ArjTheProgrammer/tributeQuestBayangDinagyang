@@ -261,23 +261,30 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
     private void playButtonSound() {
         try {
             if (buttonSound != null) {
-                // Instead of seeking, stop and prepare again for more reliable playback
-                if (buttonSound.isPlaying()) {
-                    buttonSound.stop();
-                    buttonSound.prepare();
-                }
+                // Reset to start position instead of stopping and preparing
+                buttonSound.seekTo(0);
+
+                // Adjust volume for a better sound experience
+                float volume = 0.7f; // Reduce volume slightly for a less jarring effect
+                buttonSound.setVolume(volume, volume);
+
+                // Start playing
                 buttonSound.start();
             }
         } catch (Exception e) {
-            // Log the error or handle it appropriately
-            // Log.e("CardGame", "Error playing button sound", e);
-
-            // Try to recreate the sound if there was an error
+            // Re-create the media player if there was an error
             try {
-                buttonSound.release();
+                if (buttonSound != null) {
+                    buttonSound.release();
+                }
                 buttonSound = MediaPlayer.create(this, R.raw.button);
+                if (buttonSound != null) {
+                    float volume = 0.7f;
+                    buttonSound.setVolume(volume, volume);
+                    buttonSound.start();
+                }
             } catch (Exception ex) {
-                // Log.e("CardGame", "Failed to recreate button sound", ex);
+                // Failed to recreate, set to null
                 buttonSound = null;
             }
         }
