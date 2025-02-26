@@ -31,6 +31,7 @@ public class Story4 extends AppCompatActivity {
         sound.playButtonClickSound();
         sound.stopAllMusic();
         Intent i = new Intent(this, CardGame.class);
+        i.putExtra("autoStart", true);
         startActivity(i);
         overridePendingTransition(0,0);
     }
