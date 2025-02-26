@@ -365,6 +365,8 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
                 .alpha(1f)
                 .setDuration(300)
                 .setListener(null);
+
+        Sound.getInstance(this).playMiniGameGWSounds();
     }
 
     private void gameOver(){

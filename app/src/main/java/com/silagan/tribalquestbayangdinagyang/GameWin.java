@@ -26,6 +26,8 @@ public class GameWin extends AppCompatActivity {
     RelativeLayout gameWin;
     SharedPreferences sharedPreferences;
 
+    private Sound sound;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,6 +66,10 @@ public class GameWin extends AppCompatActivity {
 
         // Display the high score
         highScore.setText(String.valueOf(highest)); // Convert int to String
+
+        sound = Sound.getInstance(this);
+        sound.playMainGameGWSounds();
+
     }
 
     public void toCollectGame(View view) {

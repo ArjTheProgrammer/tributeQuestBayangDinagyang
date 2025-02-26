@@ -37,8 +37,7 @@ public class GameOver extends AppCompatActivity {
 
         gameOver.startAnimation(AnimationUtils.loadAnimation(this, R.anim.swinging_anim));
         sound = Sound.getInstance(this);
-
-        Sound.getInstance(this).playMainGameGOSounds();
+        sound.playMainGameGOSounds();
     }
 
     public void toCollectGame(View view) {

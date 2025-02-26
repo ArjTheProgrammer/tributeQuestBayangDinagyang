@@ -25,6 +25,10 @@ public class Sound {
     private MediaPlayer bgMusicPlayer;
     private MediaPlayer minigameMusicPlayer;
     private MediaPlayer mainAppMusicPlayer;
+    private MediaPlayer maingameGWMusicPlayer;
+    private MediaPlayer minigameGWMusicPlayer;
+    private MediaPlayer maingameGOMusicPlayer;
+    private MediaPlayer minigameGOMusicPlayer;
 
     // SoundPool for short sound effects
     private SoundPool soundPool;
@@ -83,8 +87,6 @@ public class Sound {
         soundMap.put(BUTTON_CLICK, soundPool.load(context, R.raw.button_click, 1));
         soundMap.put(CONFETTI, soundPool.load(context, R.raw.confetti, 1));
 
-        soundMap.put(MAINGAME_GAME_OVER, soundPool.load(context, R.raw.maingame_gameover, 1));
-        soundMap.put(MINIGAME_GAME_OVER, soundPool.load(context, R.raw.minigame_gameover, 1));
     }
 
     private void initializeMediaPlayers() {
@@ -98,7 +100,14 @@ public class Sound {
 
         mainAppMusicPlayer = MediaPlayer.create(context, R.raw.main_app_music);
         mainAppMusicPlayer.setLooping(true);
+
+        maingameGWMusicPlayer = MediaPlayer.create(context, R.raw.maingame_gamewin);
+        minigameGWMusicPlayer = MediaPlayer.create(context, R.raw.minigame_gamewin);
+
+        maingameGOMusicPlayer = MediaPlayer.create(context, R.raw.maingame_gameover);
+        minigameGOMusicPlayer = MediaPlayer.create(context, R.raw.minigame_gameover);
     }
+
 
     // Play background music
     public void playBackgroundMusic() {
@@ -129,6 +138,40 @@ public class Sound {
             mainAppMusicPlayer.start();
         }
     }
+    public void playMainGameGWSounds(){
+        if (!initialized) return;
+
+        stopAllMusic();
+        if(maingameGWMusicPlayer !=null) {
+            maingameGWMusicPlayer.start();
+        }
+    }
+
+    public void playMiniGameGWSounds(){
+        if (!initialized) return;
+
+        stopAllMusic();
+        if(minigameGWMusicPlayer !=null) {
+            minigameGWMusicPlayer.start();
+        }
+    }
+    public void playMainGameGOSounds(){
+        if (!initialized) return;
+
+        stopAllMusic();
+        if(maingameGOMusicPlayer !=null) {
+            maingameGOMusicPlayer.start();
+        }
+    }
+
+    public void playMiniGameGOSounds(){
+        if (!initialized) return;
+
+        stopAllMusic();
+        if(minigameGOMusicPlayer !=null) {
+            minigameGOMusicPlayer.start();
+        }
+    }
 
     // Stop all music tracks
     public void stopAllMusic() {
@@ -148,6 +191,27 @@ public class Sound {
             mainAppMusicPlayer.pause();
             mainAppMusicPlayer.seekTo(0);
         }
+
+        if (maingameGWMusicPlayer != null && maingameGWMusicPlayer.isPlaying()) {
+            maingameGWMusicPlayer.pause();
+            maingameGWMusicPlayer.seekTo(0);
+        }
+
+        if (minigameGWMusicPlayer != null && minigameGWMusicPlayer.isPlaying()) {
+            minigameGWMusicPlayer.pause();
+            minigameGWMusicPlayer.seekTo(0);
+        }
+
+        if (maingameGOMusicPlayer != null && maingameGOMusicPlayer.isPlaying()) {
+            maingameGOMusicPlayer.pause();
+            maingameGOMusicPlayer.seekTo(0);
+        }
+
+        if (minigameGOMusicPlayer != null && minigameGOMusicPlayer.isPlaying()) {
+            minigameGOMusicPlayer.pause();
+            minigameGOMusicPlayer.seekTo(0);
+        }
+
     }
 
     // Play button click sound
@@ -250,15 +314,5 @@ public class Sound {
         }
     }
 
-    public void playMainGameGOSounds(){
-        playSound(MAINGAME_GAME_OVER);
 
-        stopAllMusic();
-    }
-
-    public void playMiniGameGOSounds(){
-        playSound(MINIGAME_GAME_OVER);
-
-        stopAllMusic();
-    }
 }
