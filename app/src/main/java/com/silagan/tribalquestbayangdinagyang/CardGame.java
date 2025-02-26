@@ -142,6 +142,7 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
         sound.playMinigameMusic();
 
         resumeButton.setOnClickListener(v -> {
+            iv_pause.setVisibility(View.VISIBLE);
             sound.playButtonClickSound();
             sound.playMinigameMusic();
 
@@ -152,6 +153,7 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
         });
 
         restartButton.setOnClickListener(v -> {
+            iv_pause.setVisibility(View.VISIBLE);
             sound.playButtonClickSound();
             sound.resumeAll();
             // Remove the isPaused check to allow restart at any time
@@ -163,6 +165,7 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
         });
 
         quitButton.setOnClickListener(v -> {
+            iv_pause.setVisibility(View.VISIBLE);
             sound.playButtonClickSound();
             sound.stopAllMusic();
             sound.playMainAppMusic();
@@ -174,6 +177,7 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
         iv_pause.setOnClickListener(v -> {
             sound.playButtonClickSound();
             sound.pauseAll();
+            iv_pause.setVisibility(View.INVISIBLE);
 
             if (isPaused) {
                 resumeGame();
@@ -215,7 +219,6 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
         iv_goMain.setOnClickListener(view -> {
             sound.playButtonClickSound();
             sound.stopAllMusic();
-            sound.playMainAppMusic();
 
             Intent intent = new Intent(this, MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

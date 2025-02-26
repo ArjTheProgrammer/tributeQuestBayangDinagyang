@@ -309,6 +309,7 @@ public class CollectGame extends View {
                         && item.itemX <= personX + person.getWidth() - 100
                         && item.itemY + item.getItemHeight() - 320 >= personY
                         && item.itemY <= personY + person.getHeight() - 320) {
+                    sound.playCollectSound();
                     points += item.value;
 
                     Collect collect = new Collect(context);

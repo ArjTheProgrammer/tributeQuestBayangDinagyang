@@ -17,6 +17,7 @@ public class Sound {
     private static final String MINIGAME_MUSIC = "minigameMusic";
     private static final String MAIN_APP_MUSIC = "mainAppMusic";
     private static final String BUTTON_CLICK = "buttonClick";
+    private static final String COLLECT = "collectSound";
     private static final String CONFETTI = "confetti";
     private static final String MAINGAME_GAME_OVER = "maingameGameOver";
     private static final String MINIGAME_GAME_OVER = "minigameGameOver";
@@ -86,6 +87,7 @@ public class Sound {
         // Note: Replace R.raw.xxx with your actual resource IDs
         soundMap.put(BUTTON_CLICK, soundPool.load(context, R.raw.button_click, 1));
         soundMap.put(CONFETTI, soundPool.load(context, R.raw.confetti, 1));
+        soundMap.put(COLLECT, soundPool.load(context, R.raw.collect_sound, 1));
 
     }
 
@@ -117,6 +119,10 @@ public class Sound {
         if (bgMusicPlayer != null) {
             bgMusicPlayer.start();
         }
+    }
+
+    public Boolean mainIsPlaying(){
+        return mainAppMusicPlayer.isPlaying();
     }
 
     // Play minigame music
@@ -217,6 +223,10 @@ public class Sound {
     // Play button click sound
     public void playButtonClickSound() {
         playSound(BUTTON_CLICK);
+    }
+
+    public void playCollectSound(){
+        playSound(COLLECT);
     }
 
     // Generic method to play any sound effect

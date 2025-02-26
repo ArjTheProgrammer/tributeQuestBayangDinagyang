@@ -44,7 +44,11 @@ public class MainActivity extends AppCompatActivity {
 
         sound = Sound.getInstance(this);
 
-        sound.playMainAppMusic();
+
+        if(!sound.mainIsPlaying()){
+            sound.stopAllMusic();
+            sound.playMainAppMusic();
+        }
     }
 
     public void toStart(View view) {
@@ -68,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void toMiniGame(View view) {
+        sound.playButtonClickSound();
         Intent i = new Intent(this, Story4.class);
         startActivity(i);
         overridePendingTransition(0,0);
