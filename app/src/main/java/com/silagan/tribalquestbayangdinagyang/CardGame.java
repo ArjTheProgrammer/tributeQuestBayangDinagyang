@@ -101,11 +101,11 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_card_game);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+//            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+//            return insets;
+//        });
 
         // Initialize all the views
         tv_status = findViewById(R.id.tv_status);

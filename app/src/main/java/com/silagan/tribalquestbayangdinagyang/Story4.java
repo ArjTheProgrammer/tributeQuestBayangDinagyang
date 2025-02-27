@@ -20,7 +20,7 @@ public class Story4 extends AppCompatActivity {
         setContentView(R.layout.activity_story4);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            v.setPadding(systemBars.left, 0, systemBars.right, systemBars.bottom);
             return insets;
         });
 

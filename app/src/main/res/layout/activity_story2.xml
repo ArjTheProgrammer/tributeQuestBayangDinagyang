@@ -8,21 +8,42 @@
     tools:context=".Story2"
     android:background="@drawable/story_bg">
 
-    <ImageView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="10dp"
-        android:src="@drawable/story_page2"/>
+        android:orientation="vertical"
+        android:weightSum="10">
 
-    <ImageView
-        android:id="@+id/skip_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/selector_skip"
-        android:layout_margin="15dp"
-        android:onClick="toSkip"
-        android:contentDescription="to skip"
-        android:layout_alignParentEnd="true" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.2"
+            android:gravity="end|bottom"
+            android:layout_marginRight="30dp">
+
+            <ImageView
+                android:id="@+id/skip_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/selector_skip"
+                android:onClick="toSkip"
+                android:contentDescription="to skip" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/story_page2"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
     <ImageView
         android:id="@+id/prev_button"
