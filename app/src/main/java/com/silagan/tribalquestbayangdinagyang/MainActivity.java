@@ -51,6 +51,28 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Always play the main music when coming back to the activity
+        sound.stopAllMusic(); // Stop any playing music first
+        sound.playMainAppMusic(); // Start playing the main music
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        // Pause music when the activity is no longer visible
+        sound.stopAllMusic();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Make sure to clean up and stop music when activity is destroyed
+        sound.stopAllMusic();
+    }
+
     public void toStart(View view) {
         sound.playButtonClickSound();
         Intent intent = new Intent(this, Story1.class);
