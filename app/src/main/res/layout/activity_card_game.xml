@@ -322,7 +322,8 @@
                     android:text="0"
                     android:fontFamily="@font/sigher"
                     android:layout_marginBottom="30dp"
-                    android:textSize="70sp" />
+                    android:textSize="70sp"
+                    android:textColor="#654321"/>
 
                 <TextView
                     android:id="@+id/tv_highscore"
@@ -331,7 +332,8 @@
                     android:fontFamily="@font/sigher"
                     android:layout_marginBottom="20dp"
                     android:text="0"
-                    android:textSize="30sp" />
+                    android:textSize="30sp"
+                    android:textColor="#654321"/>
             </LinearLayout>
 
             <LinearLayout

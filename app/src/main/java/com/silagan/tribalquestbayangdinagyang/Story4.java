@@ -35,4 +35,11 @@ public class Story4 extends AppCompatActivity {
         startActivity(i);
         overridePendingTransition(0,0);
     }
+
+    public void toMain(View view) {
+        sound.playButtonClickSound();
+        Intent i = new Intent(this, MainActivity.class);
+        startActivity(i);
+        overridePendingTransition(0,0);
+    }
 }
