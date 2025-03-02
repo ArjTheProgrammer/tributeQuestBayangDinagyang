@@ -287,27 +287,8 @@
                 android:layout_weight="6"
                 android:orientation="vertical"
                 android:gravity="center|bottom"
-                android:background="@drawable/sign_winner">
+                android:background="@drawable/sign_congrats">
 
-                <TextView
-                    android:id="@+id/tv_finalscore"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="0"
-                    android:fontFamily="@font/sigher"
-                    android:layout_marginBottom="30dp"
-                    android:textSize="70sp"
-                    android:textColor="#654321"/>
-
-                <TextView
-                    android:id="@+id/tv_highscore"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/sigher"
-                    android:layout_marginBottom="20dp"
-                    android:text="0"
-                    android:textSize="30sp"
-                    android:textColor="#654321"/>
             </LinearLayout>
 
             <LinearLayout
@@ -356,7 +337,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/bg_cardgame"
-        android:visibility="gone"
+        android:visibility=""
         android:gravity="center">
 
 
@@ -379,7 +360,7 @@
                     android:layout_width="400dp"
                     android:layout_height="wrap_content"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/sign_gameover"/>
+                    android:src="@drawable/sign_nicetry"/>
 
             </LinearLayout>
 
@@ -391,13 +372,13 @@
                 android:background="@drawable/paper_cardgame"
                 android:gravity="center"
                 android:orientation="vertical">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginBottom="32sp"
                     android:fontFamily="@font/sigher"
-                    android:text="SCORE"
+                    android:text="MATCHED CARDS"
                     android:textColor="#654321"
                     android:textSize="35sp" />
 
@@ -406,11 +387,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center|bottom"
-                    android:layout_marginBottom="20sp"
-                    android:text="0"
                     android:fontFamily="@font/sigher"
+                    android:text="0"
                     android:textColor="#654321"
-                    android:textSize="40sp" />
+                    android:textSize="80sp" />
 
 
             </LinearLayout>
