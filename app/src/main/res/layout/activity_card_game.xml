@@ -113,24 +113,27 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:paddingRight="50dp"
                     android:gravity="center|bottom">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/villagers"
+                        android:text="Match Score:"
                         android:textColor="#472A05"
-                        android:text="points: "
-                        android:textSize="21sp" />
+                        android:textSize="21dp" />
 
                     <TextView
-                        android:id="@+id/tv_score"
+                        android:id="@+id/tv_status"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="1dp"
                         android:fontFamily="@font/villagers"
-                        android:textColor="#472A05"
                         android:text="0"
-                        android:textSize="21sp" />
+                        android:textColor="#472A05"
+                        android:textSize="23dp" />
 
                 </LinearLayout>
 
@@ -208,35 +211,6 @@
                     <ImageView android:id="@+id/iv_Card14" android:layout_width="0dp" android:adjustViewBounds="true" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginStart="5dp" android:src="@drawable/card_flipped"  />
                     <ImageView android:id="@+id/iv_Card15" android:layout_width="0dp" android:adjustViewBounds="true" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginStart="5dp" android:src="@drawable/card_flipped" />
                 </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="1dp"
-                    android:fontFamily="@font/villagers"
-                    android:text="Match Score:"
-                    android:textColor="#472A05"
-                    android:textSize="23dp" />
-
-                <TextView
-                    android:id="@+id/tv_status"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginBottom="1dp"
-                    android:fontFamily="@font/villagers"
-                    android:text="0"
-                    android:textColor="#472A05"
-                    android:textSize="23dp" />
 
             </LinearLayout>
 
