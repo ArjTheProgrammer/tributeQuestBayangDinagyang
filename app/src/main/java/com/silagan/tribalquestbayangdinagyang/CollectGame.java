@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.Rect;
+import android.graphics.Typeface;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.view.Display;
@@ -32,7 +33,7 @@ public class CollectGame extends View {
     Runnable runnable;
     Paint textPaint = new Paint();
     Paint timerPaint = new Paint();
-    float TEXT_SIZE = 60;
+    float TEXT_SIZE = 55;
     int points = 0;
     static int dWidth, dHeight;
     Random random;
@@ -94,13 +95,14 @@ public class CollectGame extends View {
             }
         };
 
-        textPaint.setColor(Color.WHITE);
-        textPaint.setTextSize(TEXT_SIZE);
-        textPaint.setTextAlign(Paint.Align.LEFT);
+        // Use the RGB value for dark brown
+        textPaint.setColor(Color.rgb(101, 67, 33));
+        textPaint.setTextSize(TEXT_SIZE + 15);
+        textPaint.setTextAlign(Paint.Align.CENTER);
         textPaint.setTypeface(ResourcesCompat.getFont(context, R.font.sigher));
 
         timerPaint.setColor(Color.WHITE);
-        timerPaint.setTextSize(TEXT_SIZE + 5);
+        timerPaint.setTextSize(TEXT_SIZE - 5);
         timerPaint.setTextAlign(Paint.Align.LEFT);
         timerPaint.setTypeface(ResourcesCompat.getFont(context, R.font.sigher));
 
@@ -186,14 +188,23 @@ public class CollectGame extends View {
         }
     }
 
+    // Format time as MM:SS:ms
+    private String formatTime(long timeInMillis) {
+        int minutes = (int) (timeInMillis / 60000);
+        int seconds = (int) (timeInMillis / 1000) % 60;
+        int millis = (int) (timeInMillis % 1000) / 10; // Only use first 2 digits of milliseconds
+
+        return String.format("%02d:%02d:%02d", minutes, seconds, millis);
+    }
 
     @Override
     protected void onDraw(@NonNull Canvas canvas) {
         super.onDraw(canvas);
         if (!isPaused) {
             // Calculate elapsed time accounting for paused time
-            long elapsedTime = (SystemClock.elapsedRealtime() - startTime - totalPausedTime) / 1000;
-            int remainingTime = Math.max(0, gameDuration - (int) elapsedTime);
+            long elapsedTimeMillis = SystemClock.elapsedRealtime() - startTime - totalPausedTime;
+            long elapsedTimeSeconds = elapsedTimeMillis / 1000;
+            long remainingTimeMillis = Math.max(0, gameDuration * 1000 - elapsedTimeMillis);
 
             // Normal game drawing
             canvas.drawBitmap(background, null, rectBackground, null);
@@ -201,97 +212,97 @@ public class CollectGame extends View {
             canvas.drawBitmap(person, personX, personY, null);
 
             //Increase items over time
-            if (elapsedTime == 1) {
+            if (elapsedTimeSeconds == 1) {
                 if (items.isEmpty()) {
                     items.add(preallocatedItems.get(0)); // Feather
                 }
             }
 
-            if (elapsedTime == 2) {
+            if (elapsedTimeSeconds == 2) {
                 if (items.size() < 2) {
                     items.add(preallocatedItems.get(1)); // Feather
                 }
             }
 
-            if (elapsedTime == 3) {
+            if (elapsedTimeSeconds == 3) {
                 if (items.size() < 3) {
                     items.add(preallocatedItems.get(4)); // Necklace
                 }
             }
 
-            if (elapsedTime == 4) {
+            if (elapsedTimeSeconds == 4) {
                 if (items.size() < 4) {
                     items.add(preallocatedItems.get(7)); // Bottle
                 }
             }
 
-            if (elapsedTime == 10) {
+            if (elapsedTimeSeconds == 10) {
                 if (items.size() < 5) {
                     items.add(preallocatedItems.get(2)); // Feather
                 }
             }
 
-            if (elapsedTime == 11) {
+            if (elapsedTimeSeconds == 11) {
                 if (items.size() < 6) {
                     items.add(preallocatedItems.get(3)); // Feather
                 }
             }
 
-            if (elapsedTime == 12) {
+            if (elapsedTimeSeconds == 12) {
                 if (items.size() < 7) {
                     items.add(preallocatedItems.get(5)); // Necklace
                 }
             }
 
-            if (elapsedTime == 13) {
+            if (elapsedTimeSeconds == 13) {
                 if (items.size() < 8) {
                     items.add(preallocatedItems.get(6)); // Necklace
                 }
             }
 
-            if (elapsedTime == 14) {
+            if (elapsedTimeSeconds == 14) {
                 if (items.size() < 9) {
                     items.add(preallocatedItems.get(8)); // Bottle
                 }
             }
 
-            if (elapsedTime == 20) {
+            if (elapsedTimeSeconds == 20) {
                 if (items.size() < 10) {
                     items.add(preallocatedItems.get(11)); // Sword
                 }
             }
 
-            if (elapsedTime == 21) {
+            if (elapsedTimeSeconds == 21) {
                 if (items.size() < 11) {
                     items.add(preallocatedItems.get(9)); // Bottle
                 }
             }
 
-            if (elapsedTime == 22) {
+            if (elapsedTimeSeconds == 22) {
                 if (items.size() < 12) {
                     items.add(preallocatedItems.get(10)); // Bottle
                 }
             }
 
-            if (elapsedTime == 30) {
+            if (elapsedTimeSeconds == 30) {
                 if (items.size() < 13) {
                     items.add(preallocatedItems.get(12)); // Sword
                 }
             }
 
-            if (elapsedTime == 40) {
+            if (elapsedTimeSeconds == 40) {
                 if (items.size() < 14) {
                     items.add(preallocatedItems.get(13)); // Diamond
                 }
             }
 
             // Increase bombs over time
-            if (elapsedTime == 20) {
+            if (elapsedTimeSeconds == 20) {
                 if (bombs.isEmpty()) {
                     bombs.add(new Bomb(context)); // Add the first bomb at 20 seconds
                 }
-            } else if (elapsedTime > 20 && (elapsedTime - 20) % 10 == 0) {
-                if (bombs.size() < (elapsedTime - 20) / 10 + 1) {
+            } else if (elapsedTimeSeconds > 20 && (elapsedTimeSeconds - 20) % 10 == 0) {
+                if (bombs.size() < (elapsedTimeSeconds - 20) / 10 + 1) {
                     bombs.add(new Bomb(context)); // Add additional bombs every 10-second interval
                 }
             }
@@ -325,7 +336,7 @@ public class CollectGame extends View {
                     collects.add(collect);
 
                     // Only reset position if there's more than 5 seconds remaining
-                    if (remainingTime > 4) {
+                    if (remainingTimeMillis > 5000) {
                         item.resetPosition();
                     } else {
                         items.remove(i);
@@ -340,7 +351,7 @@ public class CollectGame extends View {
                     explosion.explosionY = items.get(i).itemY;
                     explosions.add(explosion);
                     // Only reset position if there's more than 5 seconds remaining
-                    if (remainingTime > 4) {
+                    if (remainingTimeMillis > 5000) {
                         item.resetPosition();
                     } else {
                         items.remove(i);
@@ -375,7 +386,7 @@ public class CollectGame extends View {
                     explosion.explosionY = bombs.get(i).bombY;
                     explosions.add(explosion);
                     // Only reset position if there's more than 5 seconds remaining
-                    if (remainingTime > 4) {
+                    if (remainingTimeMillis > 5000) {
                         bomb.resetPosition();
                     } else {
                         bombs.remove(i);
@@ -385,7 +396,7 @@ public class CollectGame extends View {
             }
 
             // End game after duration
-            if (elapsedTime >= gameDuration) {
+            if (elapsedTimeSeconds >= gameDuration) {
                 endGame(toGameWin);
             }
 
@@ -411,10 +422,20 @@ public class CollectGame extends View {
                 }
             }
 
-            // Update score
+            // Update score and time - POSITIONS SWAPPED HERE
             canvas.drawBitmap(timeScoreBackground, 30, 120, null);
-            canvas.drawText("" + points, 300, TEXT_SIZE + 190, textPaint);
-            canvas.drawText("" + remainingTime + "s", 80, TEXT_SIZE + 190, timerPaint);
+            // Show formatted time where score was previously, and score where time was previously
+            canvas.drawText("" + formatTime(remainingTimeMillis), 230, TEXT_SIZE + 195, timerPaint);
+            canvas.drawText("" + points, 130, TEXT_SIZE + 200, textPaint);
+//            if (points >= 100){
+//                canvas.drawText("" + points, 75, TEXT_SIZE + 195, textPaint);
+//            }
+//            else if (points >= 10){
+//                canvas.drawText("" + points, 95, TEXT_SIZE + 200, textPaint);
+//            }
+//            else {
+//
+//            }
 
             // Draw pause button
             canvas.drawBitmap(pauseButton, null, pauseButtonRect, null);

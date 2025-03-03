@@ -291,34 +291,63 @@
 
             </LinearLayout>
 
-            <LinearLayout
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="0dp"-->
+<!--                android:gravity="center"-->
+<!--                android:orientation="vertical"-->
+<!--                android:layout_weight="3">-->
+
+
+<!--                <ImageView-->
+<!--                    android:id="@+id/iv_playagain"-->
+<!--                    android:layout_width="200dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:adjustViewBounds="true"-->
+<!--                    android:clickable="true"-->
+<!--                    android:src="@drawable/button_playagain"-->
+<!--                    android:contentDescription="play again"/>-->
+
+<!--                <ImageView-->
+<!--                    android:id="@+id/iv_main"-->
+<!--                    android:layout_width="200dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:adjustViewBounds="true"-->
+<!--                    android:layout_marginBottom="16dp"-->
+<!--                    android:clickable="true"-->
+<!--                    android:src="@drawable/button_main"-->
+<!--                    android:contentDescription="to main"/>-->
+
+<!--            </LinearLayout>-->
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:gravity="center"
-                android:orientation="vertical"
                 android:layout_weight="3">
 
 
                 <ImageView
                     android:id="@+id/iv_playagain"
-                    android:layout_width="200dp"
+                    android:layout_width="180dp"
                     android:layout_height="wrap_content"
-                    android:adjustViewBounds="true"
                     android:clickable="true"
+                    android:adjustViewBounds="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
                     android:src="@drawable/button_playagain"
-                    android:contentDescription="play again"/>
+                    android:contentDescription="to play again"/>
 
                 <ImageView
                     android:id="@+id/iv_main"
-                    android:layout_width="200dp"
+                    android:layout_width="180dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="85dp"
                     android:adjustViewBounds="true"
-                    android:layout_marginBottom="16dp"
+                    android:layout_centerHorizontal="true"
                     android:clickable="true"
                     android:src="@drawable/button_main"
                     android:contentDescription="to main"/>
 
-            </LinearLayout>
+            </RelativeLayout>
 
         </LinearLayout>
 
@@ -369,6 +398,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="4"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
                 android:background="@drawable/paper_cardgame"
                 android:gravity="center"
                 android:orientation="vertical">
@@ -380,7 +411,8 @@
                     android:fontFamily="@font/sigher"
                     android:text="MATCHED CARDS"
                     android:textColor="#654321"
-                    android:textSize="35sp" />
+                    android:textSize="35sp"
+                    android:layout_marginTop="20dp"/>
 
                 <TextView
                     android:id="@+id/tv_goScore"
@@ -395,33 +427,35 @@
 
             </LinearLayout>
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:gravity="center"
-                android:orientation="vertical"
                 android:layout_weight="3">
 
 
                 <ImageView
                     android:id="@+id/iv_goPlayagain"
-                    android:layout_width="300dp"
-                    android:layout_height="90dp"
-                    android:layout_marginBottom="0dp"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
                     android:clickable="true"
+                    android:adjustViewBounds="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
                     android:src="@drawable/button_playagain"
                     android:contentDescription="to play again"/>
 
                 <ImageView
                     android:id="@+id/iv_goMain"
-                    android:layout_width="300dp"
-                    android:layout_height="90dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="85dp"
+                    android:adjustViewBounds="true"
+                    android:layout_centerHorizontal="true"
                     android:clickable="true"
                     android:src="@drawable/button_main"
                     android:contentDescription="to main"/>
 
-            </LinearLayout>
+            </RelativeLayout>
 
         </LinearLayout>
 
