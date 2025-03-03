@@ -132,7 +132,7 @@ public class CollectGame extends View {
 
         random = new Random();
         personX = (float) dWidth / 2 - (float) person.getWidth() / 2;
-        personY = dHeight - ground.getHeight() - person.getHeight() + 100;
+        personY = dHeight - ground.getHeight() - person.getHeight() + 80;
         bombs = new ArrayList<>();
         items = new ArrayList<>();
         preallocatedItems = new ArrayList<>();
@@ -307,8 +307,8 @@ public class CollectGame extends View {
                 // Check collision with person
                 if (item.itemX + item.getItemWidth() >= personX + 100
                         && item.itemX <= personX + person.getWidth() - 100
-                        && item.itemY + item.getItemHeight() - 320 >= personY
-                        && item.itemY <= personY + person.getHeight() - 320) {
+                        && item.itemY + item.getItemHeight() - 300 >= personY
+                        && item.itemY <= personY + person.getHeight() - 300) {
                     // Play different sounds based on item type
                     if (item.value < 0) {
                         // This is trash (negative value)
@@ -358,8 +358,8 @@ public class CollectGame extends View {
                 // Collision detection with person
                 if (bomb.bombX + bomb.getBombWidth() >= personX + 100
                         && bomb.bombX <= personX + person.getWidth() - 100
-                        && bomb.bombY + bomb.getBombHeight() - 290 >= personY
-                        && bomb.bombY <= personY + person.getHeight() - 290) {
+                        && bomb.bombY + bomb.getBombHeight() - 270 >= personY
+                        && bomb.bombY <= personY + person.getHeight() - 270) {
                     Explosion explosion = new Explosion(context);
                     explosion.explosionX = bombs.get(i).bombX;
                     explosion.explosionY = bombs.get(i).bombY;
