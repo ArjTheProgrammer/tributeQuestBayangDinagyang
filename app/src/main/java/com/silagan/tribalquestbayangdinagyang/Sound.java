@@ -19,6 +19,7 @@ public class Sound {
     private static final String BUTTON_CLICK = "buttonClick";
     private static final String COLLECT = "collectSound";
     private static final String CONFETTI = "confetti";
+    private static final String TRASH = "trash";
     private static final String MAINGAME_GAME_OVER = "maingameGameOver";
     private static final String MINIGAME_GAME_OVER = "minigameGameOver";
 
@@ -88,7 +89,7 @@ public class Sound {
         soundMap.put(BUTTON_CLICK, soundPool.load(context, R.raw.button_click, 1));
         soundMap.put(CONFETTI, soundPool.load(context, R.raw.confetti, 1));
         soundMap.put(COLLECT, soundPool.load(context, R.raw.collect_sound, 1));
-
+        soundMap.put(TRASH, soundPool.load(context, R.raw.trash_sound, 1));
     }
 
     private void initializeMediaPlayers() {
@@ -227,6 +228,10 @@ public class Sound {
 
     public void playCollectSound(){
         playSound(COLLECT);
+    }
+
+    public void playTrashSound(){
+        playSound(TRASH);
     }
 
     // Generic method to play any sound effect

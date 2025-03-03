@@ -309,7 +309,14 @@ public class CollectGame extends View {
                         && item.itemX <= personX + person.getWidth() - 100
                         && item.itemY + item.getItemHeight() - 320 >= personY
                         && item.itemY <= personY + person.getHeight() - 320) {
-                    sound.playCollectSound();
+                    // Play different sounds based on item type
+                    if (item.value < 0) {
+                        // This is trash (negative value)
+                        sound.playTrashSound();
+                    } else {
+                        // This is a valuable item
+                        sound.playCollectSound();
+                    }
                     points += item.value;
 
                     Collect collect = new Collect(context);

@@ -67,19 +67,21 @@
 
             <ImageView
                 android:id="@+id/play_again"
-                android:layout_width="200dp"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:src="@drawable/selector_playagain"
                 android:onClick="toCollectGame"
                 android:contentDescription="to collect game"
-                android:adjustViewBounds="true"/>
+                android:adjustViewBounds="true"
+                android:layout_marginTop="30dp"/>
 
             <ImageView
                 android:id="@+id/main_button"
-                android:layout_width="200dp"
+                android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:src="@drawable/selector_main"
                 android:onClick="toMain"
+                android:scaleType="centerCrop"
                 android:contentDescription="to main"
                 android:adjustViewBounds="true"/>
 
