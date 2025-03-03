@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main">
+
+    <!--top container-->
+
+    <!--card container and other buttons container-->
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="6"-->
+<!--        android:weightSum="1"-->
+<!--        android:orientation="vertical">-->
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="25dp"
+        android:weightSum="10"
+        android:orientation="vertical"
+        android:background="@drawable/bg_cardgame">
+
+        <!--card container-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.2"
+            android:orientation="horizontal">
+
+
+            <!--        <LinearLayout-->
+            <!--            android:layout_width="0dp"-->
+            <!--            android:layout_height="match_parent"-->
+            <!--            android:layout_weight="2"-->
+            <!--            android:weightSum="2"-->
+            <!--            android:orientation="vertical"-->
+            <!--            android:gravity="center|right">-->
+
+
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="0dp"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:gravity="center"-->
+            <!--                android:layout_weight="1">-->
+
+
+            <!--            </LinearLayout>-->
+
+
+            <ImageView
+                android:id="@+id/iv_pause"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="30dp"
+                android:adjustViewBounds="true"
+                android:clickable="true"
+                android:contentDescription="to pause"
+                android:src="@drawable/button_pause" />
+
+
+            <!--        </LinearLayout>-->
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8"
+            android:orientation="vertical"
+            android:background="@drawable/minigame_card_paper"
+            android:weightSum="10">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:weightSum="2"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center|bottom">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Time Left: "
+                        android:layout_marginLeft="50dp"
+                        android:textColor="#472A05"
+                        android:fontFamily="@font/villagers"
+                        android:textSize="21sp"/>
+
+
+                    <TextView
+                        android:id="@+id/tv_timer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#472A05"
+                        android:fontFamily="@font/villagers"
+                        android:text="20 SECS"
+                        android:textSize="21sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:paddingRight="50dp"
+                    android:gravity="center|bottom">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/villagers"
+                        android:text="Match Score:"
+                        android:textColor="#472A05"
+                        android:textSize="21dp" />
+
+                    <TextView
+                        android:id="@+id/tv_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="1dp"
+                        android:fontFamily="@font/villagers"
+                        android:text="0"
+                        android:textColor="#472A05"
+                        android:textSize="23dp" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:layout_weight="8"
+                android:orientation="vertical"
+                android:weightSum="4">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:weightSum="5"
+                    android:gravity="center">
+
+
+                    <ImageView android:id="@+id/iv_Card0" android:layout_width="0dp" android:adjustViewBounds="true" android:layout_height="match_parent" android:layout_weight="1" android:src="@drawable/card_flipped" />
+                    <ImageView android:id="@+id/iv_Card1" android:layout_width="0dp" android:adjustViewBounds="true" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginStart="5dp" android:src="@drawable/card_flipped"  />
+                    <ImageView android:id="@+id/iv_Card2" android:layout_width="0dp" android:adjustViewBounds="true" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginStart="5dp" android:src="@drawable/card_flipped"  />
+                    <ImageView android:id="@+id/iv_Card3" android:layout_width="0dp" android:adjustViewBounds="true" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginStart="5dp" android:src="@drawable/card_flipped" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:weightSum="5"
+                    android:gravity="center">
+
+
+                    <ImageView android:id="@+id/iv_Card4" android:layout_width="0dp" android:adjustViewBounds="true" android:layout_height="match_parent" android:layout_weight="1" android:src="@drawable/card_flipped" />
+                    <ImageView android:id="@+id/iv_Card5" android:layout_width="0dp" android:adjustViewBounds="true" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginStart="5dp" android:src="@drawable/card_flipped"  />
+                    <ImageView android:id="@+id/iv_Card6" android:layout_width="0dp" android:adjustViewBounds="true" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginStart="5dp" android:src="@drawable/card_flipped"  />
+                    <ImageView android:id="@+id/iv_Card7" android:layout_width="0dp" android:adjustViewBounds="true" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginStart="5dp" android:src="@drawable/card_flipped" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:weightSum="5"
+                    android:gravity="center">
+
+
+                    <ImageView android:id="@+id/iv_Card8" android:layout_width="0dp" android:adjustViewBounds="true" android:layout_height="match_parent" android:layout_weight="1" android:src="@drawable/card_flipped" />
+                    <ImageView android:id="@+id/iv_Card9" android:layout_width="0dp" android:adjustViewBounds="true" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginStart="5dp" android:src="@drawable/card_flipped"  />
+                    <ImageView android:id="@+id/iv_Card10" android:layout_width="0dp" android:adjustViewBounds="true" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginStart="5dp" android:src="@drawable/card_flipped"  />
+                    <ImageView android:id="@+id/iv_Card11" android:layout_width="0dp" android:adjustViewBounds="true" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginStart="5dp" android:src="@drawable/card_flipped" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:weightSum="5"
+                    android:gravity="center">
+
+
+                    <ImageView android:id="@+id/iv_Card12" android:layout_width="0dp" android:adjustViewBounds="true" android:layout_height="match_parent" android:layout_weight="1" android:src="@drawable/card_flipped" />
+                    <ImageView android:id="@+id/iv_Card13" android:layout_width="0dp" android:adjustViewBounds="true" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginStart="5dp" android:src="@drawable/card_flipped"  />
+                    <ImageView android:id="@+id/iv_Card14" android:layout_width="0dp" android:adjustViewBounds="true" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginStart="5dp" android:src="@drawable/card_flipped"  />
+                    <ImageView android:id="@+id/iv_Card15" android:layout_width="0dp" android:adjustViewBounds="true" android:layout_height="match_parent" android:layout_weight="1" android:layout_marginStart="5dp" android:src="@drawable/card_flipped" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/pauseOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#6E000000"
+        android:gravity="center"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/resumeButton"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_marginBottom="20dp"
+                android:clickable="true"
+                android:src="@drawable/selector_resume" />
+
+            <ImageView
+                android:id="@+id/restartButton"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_marginBottom="20dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/selector_restart" />
+
+            <ImageView
+                android:id="@+id/quitButton"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_marginBottom="20dp"
+                android:clickable="true"
+                android:src="@drawable/selector_quit" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/gameWinOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_cardgame"
+        android:visibility="gone"
+        android:gravity="center">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:orientation="vertical"
+            android:weightSum="10">
+
+            <!--top part of celebrate-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="6"
+                android:orientation="vertical"
+                android:gravity="center|bottom"
+                android:background="@drawable/sign_congrats">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_weight="3">
+
+
+                <ImageView
+                    android:id="@+id/iv_playagain"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:clickable="true"
+                    android:src="@drawable/button_playagain"
+                    android:contentDescription="play again"/>
+
+                <ImageView
+                    android:id="@+id/iv_main"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:layout_marginBottom="16dp"
+                    android:clickable="true"
+                    android:src="@drawable/button_main"
+                    android:contentDescription="to main"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/confetti_gif"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/confetti"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/gameOverOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_cardgame"
+        android:visibility="gone"
+        android:gravity="center">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:weightSum="10">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal">
+
+                <ImageView
+                    android:id="@+id/sign_gameover"
+                    android:layout_width="400dp"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/sign_nicetry"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="4"
+                android:background="@drawable/paper_cardgame"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/sigher"
+                    android:text="MATCHED CARDS"
+                    android:textColor="#654321"
+                    android:textSize="35sp" />
+
+                <TextView
+                    android:id="@+id/tv_goScore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|bottom"
+                    android:fontFamily="@font/sigher"
+                    android:text="0"
+                    android:textColor="#654321"
+                    android:textSize="80sp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_weight="3">
+
+
+                <ImageView
+                    android:id="@+id/iv_goPlayagain"
+                    android:layout_width="300dp"
+                    android:layout_height="90dp"
+                    android:layout_marginBottom="0dp"
+                    android:clickable="true"
+                    android:src="@drawable/button_playagain"
+                    android:contentDescription="to play again"/>
+
+                <ImageView
+                    android:id="@+id/iv_goMain"
+                    android:layout_width="300dp"
+                    android:layout_height="90dp"
+                    android:layout_marginTop="10dp"
+                    android:clickable="true"
+                    android:src="@drawable/button_main"
+                    android:contentDescription="to main"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>
