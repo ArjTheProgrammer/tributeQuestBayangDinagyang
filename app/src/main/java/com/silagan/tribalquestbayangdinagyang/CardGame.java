@@ -26,13 +26,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class CardGame extends AppCompatActivity implements View.OnClickListener {
-    TextView tv_status, tv_timer, tv_score, tv_finalscore, tv_highscore, tv_goScore;
+    TextView tv_status, tv_timer, tv_finalscore, tv_highscore, tv_goScore;
     ImageView iv_pause, iv_playagain, iv_main, iv_goPlayagain, iv_goMain;
     private CountDownTimer timerCountdown;
     private boolean gameStarted = false;
     private boolean gameCompleted = false;
     private long timeRemaining;
-    private int score = 0;
     private int totalPairs;
     private ImageView resumeButton;
     private ImageView restartButton;
@@ -40,7 +39,6 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
 
     private ImageView gameOver;
     private RelativeLayout pauseOverlay, gameWinOverlay, gameOverOverlay;
-    private int highScore = 0; // Track high score
     private boolean isPaused = false;
     private boolean isWaitingForMismatch = false;
 
@@ -109,7 +107,6 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
 
         // Initialize all the views
         tv_status = findViewById(R.id.tv_status);
-        tv_score = findViewById(R.id.tv_score);
         tv_timer = findViewById(R.id.tv_timer);
         iv_pause = findViewById(R.id.iv_pause);
 
@@ -130,9 +127,6 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
 
         gameOver.startAnimation(AnimationUtils.loadAnimation(this, R.anim.swinging_anim));
 
-        // Initialize win screen text views
-        tv_finalscore = findViewById(R.id.tv_finalscore);
-        tv_highscore = findViewById(R.id.tv_highscore);
 
         // Hide overlays initially
         pauseOverlay.setVisibility(View.GONE);
@@ -241,19 +235,17 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
         // Re-enable all game controls
         iv_pause.setEnabled(true);
 
-        tv_timer.setText("20 SECS");
+        tv_timer.setText("25 SECS");
         totalPairs = iv_CardIds.length / 2;
         matchCount = 0;
-        score = 0;
         gameCompleted = false;
         gameStarted = true;
         isWaitingForMismatch = false;
         cardInfo1 = null;
         isPaused = false; // Reset pause state
-        timeRemaining = 21000; // Reset time remaining
+        timeRemaining = 26000; // Reset time remaining
 
         tv_status.setText("0");
-        tv_score.setText("0");
 
         // Hide all overlays
         pauseOverlay.setVisibility(View.GONE);
@@ -272,7 +264,7 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
         if (timerCountdown != null) {
             timerCountdown.cancel();
         }
-        timerCountdown = new CountDownTimer(timeRemaining > 0 ? timeRemaining : 21000, 1000) {
+        timerCountdown = new CountDownTimer(timeRemaining > 0 ? timeRemaining : 26000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 timeRemaining = millisUntilFinished;
@@ -286,12 +278,7 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
                     gameCompleted = true; // Mark the game as completed
                     iv_pause.setEnabled(false); // Disable pause button when game is over
                     gameStarted = false;
-
-                    if (score > highScore) {
-                        gameWin();
-                    } else {
-                        gameOver();
-                    }
+                    gameOver(); // Show game over when time runs out
                 }
             }
         }.start();
@@ -340,13 +327,7 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
             if (timerCountdown != null) {
                 timerCountdown.cancel();
             }
-
-            if (score>highScore){
-                gameWin();
-            }else {
-                gameOver();
-            }
-
+            gameWin(); // Show game win when all cards are matched
         }
     }
 
@@ -356,11 +337,6 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
             timerCountdown.cancel();
         }
 
-        highScore = score;
-
-        // Set the score text views
-        tv_finalscore.setText(String.valueOf(score));
-        tv_highscore.setText(String.valueOf(highScore));
         // Show the game win overlay with animation
         gameWinOverlay.setVisibility(View.VISIBLE);
         gameWinOverlay.setAlpha(0f);
@@ -372,15 +348,16 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
         Sound.getInstance(this).playMiniGameGWSounds();
     }
 
-    private void gameOver(){
-        if(timerCountdown != null){
+    private void gameOver() {
+        if (timerCountdown != null) {
             timerCountdown.cancel();
         }
 
-        tv_goScore.setText(String.valueOf(score));
+        // Display match count instead of score
+        tv_goScore.setText(String.valueOf(matchCount));
 
-        // Check if score is zero to apply the slide-up animation
-        if (score == 0) {
+        // Check if no matches were made to apply the slide-up animation
+        if (matchCount == 0) {
             // Load the slide-up animation
             Animation slideUpAnim = AnimationUtils.loadAnimation(this, R.anim.slide_up);
 
@@ -409,7 +386,7 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
             // Start the animation
             gameOverOverlay.startAnimation(slideUpAnim);
         } else {
-            // Use the existing fade-in animation for non-zero scores
+            // Use the existing fade-in animation for non-zero matches
             gameOverOverlay.setVisibility(View.VISIBLE);
             gameOverOverlay.setAlpha(0f);
             gameOverOverlay.animate()
@@ -419,7 +396,6 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
         }
 
         Sound.getInstance(this).playMiniGameGOSounds();
-
     }
 
     CardInfo cardInfo1 = null;
@@ -472,11 +448,9 @@ public class CardGame extends AppCompatActivity implements View.OnClickListener 
                 if (cardInfo.getDrawableId() == cardInfo1.getDrawableId()) {
                     // Match found
                     matchCount++;
-                    score++;
                     cardInfo1.setMatched(true);
                     cardInfo.setMatched(true);
                     tv_status.setText("" + matchCount);
-                    tv_score.setText("" + score);
                     matchAnimation(imageView, findViewById(cardInfo1.getImageViewId()));
 
                     // Reset for next pair
