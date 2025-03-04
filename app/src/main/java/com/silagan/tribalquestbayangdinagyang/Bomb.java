@@ -16,7 +16,7 @@ public class Bomb {
         bomb = BitmapFactory.decodeResource(context.getResources(), R.drawable.bomb);
 
         random = new Random();
-        bombVelocity = 20;
+        bombVelocity = 15;
         resetPosition();
     }
 

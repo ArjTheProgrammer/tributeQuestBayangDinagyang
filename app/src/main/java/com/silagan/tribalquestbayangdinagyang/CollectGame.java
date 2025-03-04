@@ -75,7 +75,7 @@ public class CollectGame extends View {
         Bitmap origPerson = BitmapFactory.decodeResource(getResources(), R.drawable.character);
         person = Bitmap.createScaledBitmap(origPerson, (int)(origPerson.getWidth() / 2), origPerson.getHeight() / 2, true);
 
-        timeScoreBackground = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.game_time_score), scoreBgWidth, scoreBgHeight, true);
+        timeScoreBackground = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.game_time_score), (int) (scoreBgWidth / 1.25), (int) (scoreBgHeight / 1.25), true);
 
         Display display = ((Activity) getContext()).getWindowManager().getDefaultDisplay();
         Point size = new Point();
@@ -97,12 +97,12 @@ public class CollectGame extends View {
 
         // Use the RGB value for dark brown
         textPaint.setColor(Color.rgb(101, 67, 33));
-        textPaint.setTextSize(TEXT_SIZE + 15);
+        textPaint.setTextSize(TEXT_SIZE);
         textPaint.setTextAlign(Paint.Align.CENTER);
         textPaint.setTypeface(ResourcesCompat.getFont(context, R.font.sigher));
 
         timerPaint.setColor(Color.WHITE);
-        timerPaint.setTextSize(TEXT_SIZE - 5);
+        timerPaint.setTextSize(TEXT_SIZE - 15);
         timerPaint.setTextAlign(Paint.Align.LEFT);
         timerPaint.setTypeface(ResourcesCompat.getFont(context, R.font.sigher));
 
@@ -113,7 +113,7 @@ public class CollectGame extends View {
         exitButton = BitmapFactory.decodeResource(getResources(), R.drawable.button_pause_quit);
 
         // Scale buttons to desired size
-        pauseButton = Bitmap.createScaledBitmap(pauseButton, 170, 170, true);
+        pauseButton = Bitmap.createScaledBitmap(pauseButton, (int) (170 / 1.3), (int) (170 / 1.3), true);
         continueButton = Bitmap.createScaledBitmap(continueButton, 487, 170, true);
         restartButton = Bitmap.createScaledBitmap(restartButton, 487, 170, true);
         exitButton = Bitmap.createScaledBitmap(exitButton, 487, 170, true);
@@ -134,7 +134,7 @@ public class CollectGame extends View {
 
         random = new Random();
         personX = (float) dWidth / 2 - (float) person.getWidth() / 2;
-        personY = dHeight - ground.getHeight() - person.getHeight() + 80;
+        personY = dHeight - ground.getHeight() - person.getHeight() + 70;
         bombs = new ArrayList<>();
         items = new ArrayList<>();
         preallocatedItems = new ArrayList<>();
@@ -318,8 +318,8 @@ public class CollectGame extends View {
                 // Check collision with person
                 if (item.itemX + item.getItemWidth() >= personX + 100
                         && item.itemX <= personX + person.getWidth() - 100
-                        && item.itemY + item.getItemHeight() - 300 >= personY
-                        && item.itemY <= personY + person.getHeight() - 300) {
+                        && item.itemY + item.getItemHeight() - 230 >= personY
+                        && item.itemY <= personY + person.getHeight() - 230) {
                     // Play different sounds based on item type
                     if (item.value < 0) {
                         // This is trash (negative value)
@@ -351,7 +351,7 @@ public class CollectGame extends View {
                     explosion.explosionY = items.get(i).itemY;
                     explosions.add(explosion);
                     // Only reset position if there's more than 5 seconds remaining
-                    if (remainingTimeMillis > 5000) {
+                    if (remainingTimeMillis > 4000) {
                         item.resetPosition();
                     } else {
                         items.remove(i);
@@ -369,8 +369,8 @@ public class CollectGame extends View {
                 // Collision detection with person
                 if (bomb.bombX + bomb.getBombWidth() >= personX + 100
                         && bomb.bombX <= personX + person.getWidth() - 100
-                        && bomb.bombY + bomb.getBombHeight() - 270 >= personY
-                        && bomb.bombY <= personY + person.getHeight() - 270) {
+                        && bomb.bombY + bomb.getBombHeight() - 200 >= personY
+                        && bomb.bombY <= personY + person.getHeight() - 200) {
                     Explosion explosion = new Explosion(context);
                     explosion.explosionX = bombs.get(i).bombX;
                     explosion.explosionY = bombs.get(i).bombY;
@@ -425,8 +425,8 @@ public class CollectGame extends View {
             // Update score and time - POSITIONS SWAPPED HERE
             canvas.drawBitmap(timeScoreBackground, 30, 120, null);
             // Show formatted time where score was previously, and score where time was previously
-            canvas.drawText("" + formatTime(remainingTimeMillis), 230, TEXT_SIZE + 195, timerPaint);
-            canvas.drawText("" + points, 130, TEXT_SIZE + 200, textPaint);
+            canvas.drawText("" + formatTime(remainingTimeMillis), (float) (240 / 1.25), TEXT_SIZE + 165, timerPaint);
+            canvas.drawText("" + points, (float) (140 / 1.3), TEXT_SIZE + 170, textPaint);
 //            if (points >= 100){
 //                canvas.drawText("" + points, 75, TEXT_SIZE + 195, textPaint);
 //            }

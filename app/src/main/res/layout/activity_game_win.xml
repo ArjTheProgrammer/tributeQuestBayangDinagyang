@@ -96,11 +96,11 @@
                 android:id="@+id/play_again"
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
-                android:clickable="true"
+                android:onClick="toCollectGame"
                 android:adjustViewBounds="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
-                android:src="@drawable/button_playagain"
+                android:src="@drawable/selector_playagain"
                 android:contentDescription="to play again"/>
 
             <ImageView
@@ -110,8 +110,8 @@
                 android:layout_marginTop="85dp"
                 android:adjustViewBounds="true"
                 android:layout_centerHorizontal="true"
-                android:clickable="true"
-                android:src="@drawable/button_main"
+                android:onClick="toMain"
+                android:src="@drawable/selector_main"
                 android:contentDescription="to main"/>
 
         </RelativeLayout>
