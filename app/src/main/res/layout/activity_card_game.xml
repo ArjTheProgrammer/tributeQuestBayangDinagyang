@@ -276,7 +276,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="bottom"
+            android:gravity="top"
             android:orientation="vertical"
             android:weightSum="10">
 
@@ -284,7 +284,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="6"
+                android:layout_weight="7.5"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
                 android:orientation="vertical"
                 android:gravity="center|bottom"
                 android:background="@drawable/sign_congrats">
@@ -327,24 +329,24 @@
 
                 <ImageView
                     android:id="@+id/iv_playagain"
-                    android:layout_width="180dp"
+                    android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:clickable="true"
                     android:adjustViewBounds="true"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="10dp"
-                    android:src="@drawable/button_playagain"
+                    android:src="@drawable/selector_playagain"
                     android:contentDescription="to play again"/>
 
                 <ImageView
                     android:id="@+id/iv_main"
-                    android:layout_width="180dp"
+                    android:layout_width="250dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="85dp"
+                    android:layout_marginTop="105dp"
                     android:adjustViewBounds="true"
                     android:layout_centerHorizontal="true"
                     android:clickable="true"
-                    android:src="@drawable/button_main"
+                    android:src="@drawable/selector_main"
                     android:contentDescription="to main"/>
 
             </RelativeLayout>
@@ -398,8 +400,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="4"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
+                android:layout_marginLeft="100dp"
+                android:layout_marginRight="100dp"
                 android:background="@drawable/paper_cardgame"
                 android:gravity="center"
                 android:orientation="vertical">
@@ -411,8 +413,8 @@
                     android:fontFamily="@font/sigher"
                     android:text="MATCHED CARDS"
                     android:textColor="#654321"
-                    android:textSize="35sp"
-                    android:layout_marginTop="20dp"/>
+                    android:textSize="45sp"
+                    android:layout_marginBottom="35dp"/>
 
                 <TextView
                     android:id="@+id/tv_goScore"
@@ -422,7 +424,7 @@
                     android:fontFamily="@font/sigher"
                     android:text="0"
                     android:textColor="#654321"
-                    android:textSize="80sp" />
+                    android:textSize="100sp" />
 
 
             </LinearLayout>
@@ -435,7 +437,7 @@
 
                 <ImageView
                     android:id="@+id/iv_goPlayagain"
-                    android:layout_width="180dp"
+                    android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:clickable="true"
                     android:adjustViewBounds="true"
@@ -446,9 +448,9 @@
 
                 <ImageView
                     android:id="@+id/iv_goMain"
-                    android:layout_width="180dp"
+                    android:layout_width="250dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="85dp"
+                    android:layout_marginTop="125dp"
                     android:adjustViewBounds="true"
                     android:layout_centerHorizontal="true"
                     android:clickable="true"

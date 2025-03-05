@@ -21,7 +21,7 @@ public class Item {
         originalItem = Bitmap.createScaledBitmap(origItem, (int)(origItem.getWidth() / 1.6), (int)(origItem.getHeight() / 1.6), true);
         this.value = value;
         random = new Random();
-        itemVelocity = 15;
+        itemVelocity = 20;
         rotationSpeed = 1;
         rotationAngle = random.nextFloat() * 360;
         matrix = new Matrix();

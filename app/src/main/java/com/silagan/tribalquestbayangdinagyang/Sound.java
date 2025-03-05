@@ -240,7 +240,16 @@ public class Sound {
 
         Integer soundId = soundMap.get(soundName);
         if (soundId != null) {
-            soundPool.play(soundId, 10.0f, 10.0f, 1, 0, 1.0f);
+            // Attempt to play the sound, releasing and reloading if necessary
+            try {
+                soundPool.play(soundId, 1.0f, 1.0f, 1, 0, 1.0f);
+            } catch (Exception e) {
+                // If sound fails to play, try reinitializing
+                soundMap.remove(soundName);
+                soundMap.put(soundName, soundPool.load(context,
+                        soundName.equals(COLLECT) ? R.raw.collect_sound :
+                                (soundName.equals(TRASH) ? R.raw.trash_sound : 0), 1));
+            }
         }
     }
 

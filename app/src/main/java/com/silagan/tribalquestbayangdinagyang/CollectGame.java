@@ -12,6 +12,7 @@ import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.os.Handler;
 import android.os.SystemClock;
+import android.util.Log;
 import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
@@ -161,7 +162,7 @@ public class CollectGame extends View {
         toGameOver = new Intent(context, GameOver.class);
         toGameWin = new Intent(context, GameWin.class);
 
-        sound = Sound.getInstance(activity);
+        sound = Sound.getInstance(context.getApplicationContext());
         sound.playBackgroundMusic();
 
         startTime = SystemClock.elapsedRealtime();
@@ -318,15 +319,26 @@ public class CollectGame extends View {
                 // Check collision with person
                 if (item.itemX + item.getItemWidth() >= personX + 100
                         && item.itemX <= personX + person.getWidth() - 100
-                        && item.itemY + item.getItemHeight() - 230 >= personY
-                        && item.itemY <= personY + person.getHeight() - 230) {
-                    // Play different sounds based on item type
+                        && item.itemY + item.getItemHeight() - 190 >= personY
+                        && item.itemY <= personY + person.getHeight() - 190) {
                     if (item.value < 0) {
                         // This is trash (negative value)
-                        sound.playTrashSound();
+                        if (sound != null) {
+                            try {
+                                sound.playTrashSound();
+                            } catch (Exception e) {
+                                Log.e("CollectGame", "Error playing trash sound", e);
+                            }
+                        }
                     } else {
                         // This is a valuable item
-                        sound.playCollectSound();
+                        if (sound != null) {
+                            try {
+                                sound.playCollectSound();
+                            } catch (Exception e) {
+                                Log.e("CollectGame", "Error playing collect sound", e);
+                            }
+                        }
                     }
                     points += item.value;
 
@@ -369,8 +381,8 @@ public class CollectGame extends View {
                 // Collision detection with person
                 if (bomb.bombX + bomb.getBombWidth() >= personX + 100
                         && bomb.bombX <= personX + person.getWidth() - 100
-                        && bomb.bombY + bomb.getBombHeight() - 200 >= personY
-                        && bomb.bombY <= personY + person.getHeight() - 200) {
+                        && bomb.bombY + bomb.getBombHeight() - 160 >= personY
+                        && bomb.bombY <= personY + person.getHeight() - 160) {
                     Explosion explosion = new Explosion(context);
                     explosion.explosionX = bombs.get(i).bombX;
                     explosion.explosionY = bombs.get(i).bombY;
